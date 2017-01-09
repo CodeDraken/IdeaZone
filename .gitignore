@@ -126,3 +126,13 @@ dist/
 *.css.map
 
 # End of https://www.gitignore.io/api/sublimetext,visualstudiocode,linux,windows,macos,git,grunt,osx,sass
+
+# Dependency directories
+node_modules
+jspm_packages
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
