@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+class Header extends Component {
+  render() {
+    return (
+      <h1>Hello World</h1>
+    );
   }
-  return <h1>App</h1>
 }
+
+const App = document.getElementById('App');
+ReactDOM.render(<Header />, App);
