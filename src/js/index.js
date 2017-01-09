@@ -1,13 +1,19 @@
+// Modules
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Header extends Component {
+// Components
+import Navbar from './components/Navbar';
+
+class App extends Component {
   render() {
     return (
-      <h1>Hello World</h1>
-    );
+      <div>
+        <Navbar />
+        <h1>Main App</h1>
+      </div>
+      );
   }
 }
 
-const App = document.getElementById('App');
-ReactDOM.render(<Header />, App);
+ReactDOM.render(<App />, document.getElementById('App'));

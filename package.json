@@ -4,10 +4,11 @@
   "description": "Project Idea Sharing App",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-dev-server --content-base ./ --inline --hot",// cli command for autoreload 
+    "start": "npm run build",
+    "build": "webpack -d && webpack-dev-server --inline --hot --port 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Evan, Anisa, others",
+  "author": "Evan, Anisa, skhamoud, others",
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
