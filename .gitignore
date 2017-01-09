@@ -136,3 +136,4 @@ jspm_packages
 *.log
 # Optional eslint cache
 .eslintcache
+build/
