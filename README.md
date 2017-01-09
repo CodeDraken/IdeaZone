@@ -3,6 +3,8 @@ Project idea sharing web app
 
 Contributing Notes:
 
+[Trello Board](https://trello.com/b/yDRMqjdO)
+
 **SCSS**
 
 * Use BEM: [BEM](https://css-tricks.com/bem-101/)
