@@ -5,9 +5,11 @@ Project idea sharing web app
 
 [Trello Board](https://trello.com/b/yDRMqjdO)
 
-**Local Dev Server**
+**Local Dev Server Setup**
 
-To run a local server, open the terminal , ```cd``` into the project folder and run ```npm start``` which will start a local server at localhost:3000/.
+Clone the repo then open a terminal in the directory and do a ```npm install```
+
+To run a local server, open the terminal , ```cd``` into the project folder and run ```npm start``` which will start a local server at localhost:3000.
 
 **SCSS**
 
