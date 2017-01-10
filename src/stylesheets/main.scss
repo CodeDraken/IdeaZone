@@ -33,3 +33,8 @@
 // 7. Themes
 @import
   'themes/default';
+
+h1{
+  text-transform: uppercase;
+  color: red;
+}
