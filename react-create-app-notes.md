@@ -1,23 +1,4 @@
-# IdeaZone
-Project idea sharing web app
-
-## Contributing Notes:
-
-[Trello Board](https://trello.com/b/yDRMqjdO)
-
-**Local Dev Server**
-
-To run a local server, open the terminal , ```cd``` into the project folder and run ```npm start``` which will start a local server at localhost:3000/.
-
-**SCSS**
-
-* Use BEM: [BEM](https://css-tricks.com/bem-101/)
-* Use 7-1 Pattern: [7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
-
-
-
-## React Create App Notes
-
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
@@ -1261,5 +1242,3 @@ It is reported that `npm run build` can fail on machines with no swap space, whi
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
-
-
