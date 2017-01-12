@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
   <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -15,7 +16,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>React App</title>
+  <title>IdeaZone</title>
 </head>
 
 <body>
@@ -30,15 +31,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="#">IdeaZone</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <li class="active"><a href="#">Find Project Ideas</a></li>
+          <li><a href="#">My Favorite Projects</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-label="Add Idea"></span></a></li>
         </ul>
 
       </div>
@@ -47,17 +49,44 @@
     <!-- /.container-fluid -->
   </nav>
 
+  <div class="container">
+
+    <header class="text-center">
+      <h1>Find Project Ideas</h1>
+      <div id="search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="form-control input-lg" placeholder="Search" />
+          <span class="input-group-btn">
+              <button class="btn btn-default btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+              </button>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <section class="container">
+      <!-- stickies -->
+      <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="post">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i>
+            <a class="post__link" href="#">View Examples</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- Ignore root for now -->
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
