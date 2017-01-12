@@ -9,3 +9,24 @@ $text-font-stack: 'Open Sans',
 'Helvetica',
 'Arial',
 sans-serif !default;
+// Named Colors
+$mandy: #F36D76;
+$cream-can: #F5C659;
+$downy: #6CCAB7;
+//////////////////////////
+// Base Colors ///////////
+$link: darken($downy, 25%);
+$link-hover: $downy;
+//////////////////////////
+// Component Colors
+// Navbar
+$nav-link: #555;
+$nav-link-active: lighten($nav-link, 25%);
+// Stickies / Posts
+$post-green: #cff09e;
+$post-purple: #D1B6E1;
+$post-blue: #e1eef6;
+$post-mint: #D7FFF1;
+$post-pink: #FADAD8;
+$post-grey: #e4e7ec;
+$post-orange: #FDD692;

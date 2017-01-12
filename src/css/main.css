@@ -419,8 +419,112 @@ html {
 *::after {
   box-sizing: inherit; }
 
+body {
+  font-family: 'Lato', sans-serif; }
+
+a {
+  color: #308675;
+  text-decoration: none;
+  transition: 0.2s color ease-in-out; }
+  a:hover, a:active, a:focus {
+    color: #6CCAB7;
+    text-decoration: none; }
+
 /**
  * Basic typography style for copy text
  */
+.fa {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out; }
+
+.fa-chevron-circle-left,
+.fa-chevron-circle-right {
+  color: #444; }
+  .fa-chevron-circle-left:hover, .fa-chevron-circle-left:active, .fa-chevron-circle-left:focus,
+  .fa-chevron-circle-right:hover,
+  .fa-chevron-circle-right:active,
+  .fa-chevron-circle-right:focus {
+    color: #008c9e; }
+
+.fa-heart-o {
+  color: #F36D76; }
+  .fa-heart-o:hover, .fa-heart-o:active, .fa-heart-o:focus {
+    color: #ef3e4a; }
+
+.fa-plus-circle {
+  color: #444; }
+  .fa-plus-circle:hover, .fa-plus-circle:active, .fa-plus-circle:focus {
+    color: #008c9e; }
+
+h1 {
+  color: #6CCAB7;
+  font-weight: bold; }
+
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
+
+.navbar__icon {
+  padding: 15px 0; }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background: none;
+  color: #959595; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #555;
+  transition: color 0.2s ease-in-out; }
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
+    color: #6f6f6f; }
+
+.post {
+  background-color: #feee7d;
+  padding: 1em;
+  margin-top: 1em; }
+  .post .post__title {
+    color: #333; }
+  .post .post__desc {
+    color: #444; }
+  .post .post__heart {
+    color: #ef5285;
+    font-weight: bold; }
+    .post .post__heart:hover, .post .post__heart:active, .post .post__heart:focus {
+      color: #eb2364; }
+  .post .post__link {
+    color: #519D9E;
+    text-align: right; }
+    .post .post__link:hover {
+      text-decoration: none;
+      color: #4e476c; }
+  .post .post__favnum {
+    color: #000; }
+
+.post__green {
+  background-color: #cff09e; }
+
+.post__purple {
+  background-color: #D1B6E1; }
+
+.post__blue {
+  background-color: #e1eef6; }
+
+.post__mint {
+  background-color: #D7FFF1; }
+
+.post__pink {
+  background-color: #FADAD8; }
+
+.post__grey {
+  background-color: #e4e7ec; }
+
+.post__orange {
+  background-color: #FDD692; }
+
+.post__nav {
+  margin: 1em 0; }
 
 /*# sourceMappingURL=main.css.map */

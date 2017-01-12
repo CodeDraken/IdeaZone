@@ -23,3 +23,17 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  transition: 0.2s color ease-in-out;
+  @include on-event() {
+    color: $link-hover;
+    text-decoration: none;
+  }
+}

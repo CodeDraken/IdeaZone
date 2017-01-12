@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,7 +26,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -35,12 +36,15 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
 
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Find Project Ideas</a></li>
           <li><a href="#">My Favorite Projects</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-label="Add Idea"></span></a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><i class="fa fa-plus-circle fa-2x navbar__icon" aria-hidden="true" title="Add an idea"></i></li>
         </ul>
 
       </div>
@@ -52,13 +56,13 @@
   <div class="container">
 
     <header class="text-center">
-      <h1>Find Project Ideas</h1>
+      <h1>Find Project Ideas or Add an Idea <i class="fa fa-plus-circle" aria-hidden="true"></i></h1>
       <div id="search-input">
         <div class="input-group col-md-12">
           <input type="text" class="form-control input-lg" placeholder="Search" />
           <span class="input-group-btn">
               <button class="btn btn-default btn-lg" type="button">
-                  <i class="glyphicon glyphicon-search"></i>
+                  <i class="fa fa-search" aria-hidden="true"></i>
               </button>
           </span>
         </div>
@@ -66,20 +70,118 @@
     </header>
 
     <section class="container">
-      <!-- stickies -->
-      <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3">
+      <!--<i class="fa fa-chevron-circle-left fa-2x post__prev" aria-hidden="true"></i>-->
+
+      <!-- stickies row -->
+      <div class="row ">
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
           <div class="post">
             <h3 class="post__title">Pomodoro Clock</h3>
             <p class="post__desc">
               A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
             </p>
-            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i>
-            <a class="post__link" href="#">View Examples</a>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
           </div>
         </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__blue">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__green">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__purple">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__mint">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__pink">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__grey">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post__orange">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+
       </div>
+      <!--<i class="fa fa-chevron-circle-right fa-2x post__next" aria-hidden="true"></i>-->
+
+      <div class="clearfix post__nav">
+        <i class="fa fa-chevron-circle-left fa-3x float-left" aria-hidden="true"></i>
+        <i class="fa fa-chevron-circle-right fa-3x float-right" aria-hidden="true"></i>
+      </div>
+
     </section>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+      ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
+      augue duis dolore te feugait <a href="#">test link style</a> facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus
+      legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica,
+      quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+    </p>
+
 
   </div>
 

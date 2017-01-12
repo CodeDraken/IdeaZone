@@ -1,0 +1,18 @@
+.navbar__icon {
+  padding: 15px 0;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background: none;
+  color: $nav-link-active;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: $nav-link;
+  transition: color 0.2s ease-in-out;
+  @include on-event() {
+    color: lighten($nav-link, 10%);
+  }
+}
