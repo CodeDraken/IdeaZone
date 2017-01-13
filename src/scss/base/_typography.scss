@@ -9,9 +9,9 @@
 
 .fa-chevron-circle-left,
 .fa-chevron-circle-right {
-  color: #444;
+  color: lighten(#008c9e, 5%);
   @include on-event() {
-    color: #008c9e;
+    color: lighten(#008c9e, 15%);
   }
 }
 
@@ -23,9 +23,10 @@
 }
 
 .fa-plus-circle {
-  color: #444;
+  color: lighten(#008c9e, 5%);
+  ;
   @include on-event() {
-    color: #008c9e;
+    color: lighten(#008c9e, 15%);
   }
 }
 

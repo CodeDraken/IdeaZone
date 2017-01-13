@@ -439,12 +439,12 @@ a {
 
 .fa-chevron-circle-left,
 .fa-chevron-circle-right {
-  color: #444; }
+  color: #00a3b8; }
   .fa-chevron-circle-left:hover, .fa-chevron-circle-left:active, .fa-chevron-circle-left:focus,
   .fa-chevron-circle-right:hover,
   .fa-chevron-circle-right:active,
   .fa-chevron-circle-right:focus {
-    color: #008c9e; }
+    color: #00d0eb; }
 
 .fa-heart-o {
   color: #F36D76; }
@@ -452,9 +452,9 @@ a {
     color: #ef3e4a; }
 
 .fa-plus-circle {
-  color: #444; }
+  color: #00a3b8; }
   .fa-plus-circle:hover, .fa-plus-circle:active, .fa-plus-circle:focus {
-    color: #008c9e; }
+    color: #00d0eb; }
 
 h1 {
   color: #6CCAB7;
@@ -466,29 +466,53 @@ h1 {
 .float-left {
   float: left; }
 
+footer {
+  min-height: 2em;
+  margin-top: 3em; }
+
 .navbar__icon {
-  padding: 15px 0; }
+  padding-top: 15px; }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
   background: none;
+  border-bottom: 3px solid transparent;
   color: #959595; }
 
+.navbar-default .navbar-nav > li {
+  border-right: 1px solid #ddd; }
+  .navbar-default .navbar-nav > li:first-child {
+    border-left: 1px solid #ddd; }
+
+.navbar-brand {
+  border-bottom: 3px solid transparent;
+  font-size: 1.5em;
+  font-weight: 600; }
+
 .navbar-default .navbar-nav > li > a {
+  border-bottom: 3px solid transparent;
   color: #555;
-  transition: color 0.2s ease-in-out; }
+  font-size: 1.1em;
+  transition: color 0.2s ease-in-out, border 0.2s ease-in-out; }
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
-    color: #6f6f6f; }
+    color: #7b7b7b;
+    border-bottom: 3px solid #D7FFF1; }
 
 .post {
   background-color: #feee7d;
+  height: 200px;
   padding: 1em;
-  margin-top: 1em; }
+  margin-top: 1em;
+  overflow: hidden; }
   .post .post__title {
-    color: #333; }
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden; }
   .post .post__desc {
-    color: #444; }
+    color: #444;
+    height: 80px;
+    overflow: hidden; }
   .post .post__heart {
     color: #ef5285;
     font-weight: bold; }
@@ -499,29 +523,30 @@ h1 {
     text-align: right; }
     .post .post__link:hover {
       text-decoration: none;
-      color: #4e476c; }
+      color: #6eb4b4; }
   .post .post__favnum {
-    color: #000; }
+    color: #6d9d88;
+    cursor: default; }
 
-.post__green {
+.post--green {
   background-color: #cff09e; }
 
-.post__purple {
+.post--purple {
   background-color: #D1B6E1; }
 
-.post__blue {
+.post--blue {
   background-color: #e1eef6; }
 
-.post__mint {
+.post--mint {
   background-color: #D7FFF1; }
 
-.post__pink {
+.post--pink {
   background-color: #FADAD8; }
 
-.post__grey {
+.post--grey {
   background-color: #e4e7ec; }
 
-.post__orange {
+.post--orange {
   background-color: #FDD692; }
 
 .post__nav {

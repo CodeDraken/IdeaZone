@@ -33,7 +33,7 @@ a {
   text-decoration: none;
   transition: 0.2s color ease-in-out;
   @include on-event() {
-    color: $link-hover;
+    color: $link--hover;
     text-decoration: none;
   }
 }
