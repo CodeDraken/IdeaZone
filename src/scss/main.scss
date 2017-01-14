@@ -16,7 +16,9 @@
 'layout/navbar';
 // 5. Components
 @import 'components/searchbar',
-'components/post.scss';
+'components/post',
+'components/project',
+'components/imageSlider';
 // 6. Page-specific styles
 @import 'pages/home';
 // 7. Themes

@@ -1,0 +1,11 @@
+.project {
+  .project__title {}
+  .project__desc {
+    font-size: 1.1em;
+    line-height: 2;
+  }
+  .project__img {}
+  .project__favnum {
+    color: $post__favnum;
+  }
+}

@@ -456,7 +456,9 @@ a {
   .fa-plus-circle:hover, .fa-plus-circle:active, .fa-plus-circle:focus {
     color: #00d0eb; }
 
-h1 {
+h1,
+h2,
+h3 {
   color: #6CCAB7;
   font-weight: bold; }
 
@@ -465,6 +467,10 @@ h1 {
 
 .float-left {
   float: left; }
+
+.img--center {
+  display: block;
+  margin: 0 auto; }
 
 footer {
   min-height: 2em;
@@ -551,5 +557,42 @@ footer {
 
 .post__nav {
   margin: 1em 0; }
+
+.project .project__desc {
+  font-size: 1.1em;
+  line-height: 2; }
+.project .project__favnum {
+  color: #6d9d88; }
+
+.carousel {
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px; }
+
+/* The controlsy */
+.carousel-control {
+  left: -12px;
+  height: 40px;
+  width: 40px;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  margin-top: 90px; }
+
+.carousel-control.right {
+  right: -12px; }
+
+/* The indicators */
+.carousel-indicators {
+  right: 50%;
+  top: auto;
+  bottom: -10px;
+  margin-right: -19px; }
+
+/* The colour of the indicators */
+.carousel-indicators li {
+  background: #cecece; }
+
+.carousel-indicators .active {
+  background: #428bca; }
 
 /*# sourceMappingURL=main.css.map */
