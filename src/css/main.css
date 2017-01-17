@@ -430,6 +430,29 @@ a {
     color: #6CCAB7;
     text-decoration: none; }
 
+h1,
+h2,
+h3,
+h4 {
+  color: #6CCAB7;
+  font-weight: bold;
+  margin: 1em 0; }
+
+h1 {
+  font-size: 2.5em; }
+
+h2 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1.5em; }
+
+h4 {
+  font-size: 1.25em; }
+
+section {
+  margin: 0 0 3em 0; }
+
 /**
  * Basic typography style for copy text
  */
@@ -456,12 +479,6 @@ a {
   .fa-plus-circle:hover, .fa-plus-circle:active, .fa-plus-circle:focus {
     color: #00d0eb; }
 
-h1,
-h2,
-h3 {
-  color: #6CCAB7;
-  font-weight: bold; }
-
 .float-right {
   float: right; }
 
@@ -477,7 +494,16 @@ footer {
   margin-top: 3em; }
 
 .navbar__icon {
-  padding-top: 15px; }
+  padding: 10px 15px;
+  font-size: 1.2em; }
+  .navbar__icon span {
+    font-family: 'Lato', sans-serif; }
+  @media only screen and (min-width: 768px) {
+    .navbar__icon {
+      padding-top: 15px;
+      font-size: 2em; }
+      .navbar__icon span {
+        display: none; } }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
@@ -561,6 +587,10 @@ footer {
 .project .project__desc {
   font-size: 1.1em;
   line-height: 2; }
+.project .project__img {
+  margin: 0.5em 0; }
+.project .project__stats {
+  margin: 1em 0; }
 .project .project__favnum {
   color: #6d9d88; }
 
@@ -568,6 +598,10 @@ footer {
   margin-bottom: 0;
   padding: 0 40px 30px 40px; }
 
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .carousel .carousel-inner .row .col-xs-6:nth-child(2n+1) {
+    clear: both; } }
 /* The controlsy */
 .carousel-control {
   left: -12px;

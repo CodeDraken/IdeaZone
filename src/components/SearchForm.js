@@ -8,7 +8,7 @@ class SearchForm extends Component {
     return (
       <div>
         <header className="text-center clearfix">
-          <h1>Find Project Ideas or Add an Idea<i classNameName="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h1>
+          <h1>Find Project Ideas or Add an Idea<i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h1>
         </header>
   
         <div id="search-input">

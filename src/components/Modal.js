@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-class IdeaModal extends Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
-        <div className="modal fade" id="addIdeaModal" tabindex="-1" role="dialog" aria-labelledby="addIdeaModalLabel">
+        <div className="modal fade" id="addIdeaModal" tabIndex="-1" role="dialog" aria-labelledby="addIdeaModalLabel">
           <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -18,11 +18,11 @@ class IdeaModal extends Component {
   
               <form>
                 <div className="form-group">
-                  <label for="ideaFormTitle">Title</label>
+                  <label htmlFor="ideaFormTitle">Title</label>
                   <input type="text" className="form-control" id="ideaFormTitle" placeholder="Enter name of project idea" />
                 </div>
                 <div className="form-group">
-                  <label for="ideaFormDesc">Description</label>
+                  <label htmlFor="ideaFormDesc">Description</label>
                   <input type="text" className="form-control" id="ideaFormDesc" placeholder="Description of the project" />
                 </div>
               </form>
@@ -39,4 +39,4 @@ class IdeaModal extends Component {
   }
 }
 
-export default IdeaModal;
+export default Modal;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, IndexLink } from 'react-router';
 
 const Navbar = (props) => {
   return (
@@ -17,8 +18,16 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbar-collapse-1">
   
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Find Project Ideas</a></li>
-            <li><a href="#">My Favorite Projects</a></li>
+            <li>
+              <IndexLink to="/" activeClassName="active">
+              Find Project Ideas
+              </IndexLink>
+            </li>
+            <li>
+              <Link to="/idea" activeClassName="active">
+              My Favorite Projects
+              </Link>
+            </li>
           </ul>
   
           <ul className="nav navbar-nav navbar-right">

@@ -1,5 +1,16 @@
 .navbar__icon {
-  padding-top: 15px;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  span {
+    font-family: 'Lato', sans-serif;
+  }
+  @media only screen and (min-width: 768px) {
+    padding-top: 15px;
+    font-size: 2em;
+    span {
+      display: none;
+    }
+  }
 }
 
 .navbar-default .navbar-nav>.active>a,

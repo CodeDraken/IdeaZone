@@ -4,6 +4,15 @@
 }
 
 
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 768px) {
+  .carousel .carousel-inner .row .col-xs-6:nth-child(2n+1) {
+    clear: both;
+  }
+}
+
+
 /* The controlsy */
 
 .carousel-control {

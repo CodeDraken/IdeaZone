@@ -12,8 +12,7 @@
   color: lighten(#008c9e, 5%);
   @include on-event() {
     color: lighten(#008c9e, 15%);
-  }
-}
+  }}
 
 .fa-heart-o {
   color: $mandy;
@@ -30,9 +29,3 @@
   }
 }
 
-h1,
-h2,
-h3 {
-  color: $downy;
-  font-weight: bold;
-}
