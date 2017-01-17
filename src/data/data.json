@@ -1,0 +1,153 @@
+{
+  "ideas": [
+
+    {
+      "title": "Pomodoro Clock",
+      "description": "A timer with 25 minute work intervals. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloremagna aliquam erat volutpat.Ut wisi enim ad minim veniam,quis nostrud exerci tation ullamcorper suscipit lobortis nislut aliquip ex ea commodo consequat.Duis autem vel eum iriuredolor in hendrerit in vulputate velit esse molestie consequat,vel illum dolore eu feugiat nulla facilisis at vero eros etaccumsan et iusto odio dignissim qui blandit praesent luptatumzzril delenit augue duis dolore te feugait nulla facilisi.Nam liber tempor cum soluta nobis eleifend option conguenihil imperdiet doming id quod mazim placerat facer possimassum.Typi non habent claritatem insitam;est usus legentis in iis qui facit eorum claritatem.Investigationesdemonstraverunt lectores legere me lius quod ii legunt saepius.Claritas est etiam processus dynamicus,qui sequitur mutationemconsuetudium lectorum.Mirum est notare quam littera gothica,quam nunc putamus parum claram,anteposuerit litterarum formashumanitatis per seacula quarta decima et quinta decima.Eodemmodo typi,qui nunc nobis videntur parum clari,fiant sollemnes in futurum.",
+      "tags": "timer, web, pomodoro",
+      "imageUrl": "https://raw.githubusercontent.com/CodeDraken/IdeaZone/c9-development/public/img/pomodoro.png",
+      "rating": 500,
+      "tutorials": [
+        {
+          "url": "www.mytutorial.com",
+          "text": "My Tutorial"
+        },
+        {
+          "url": "www.supercooltutorial.com",
+          "text": "My super cool Tutorial"
+        }
+      ],
+      "examples": [
+        {
+          "title": "FreeCodeCamp Pomodoro",
+          "imageUrl": "https://raw.githubusercontent.com/CodeDraken/IdeaZone/c9-development/public/img/pomodoro.png",
+          "url": "fcc.com/pomodoro"
+        },
+        {
+          "title": "Anisa's Pomodoro",
+          "imageUrl": "https://raw.githubusercontent.com/CodeDraken/IdeaZone/c9-development/public/img/pomodoro.png",
+          "url": "a.com/pomodoro"
+        }
+      ]
+    },
+
+    {
+      "title": "To Do List",
+      "description": "Create, read, update, delete... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloremagna aliquam erat volutpat.Ut wisi enim ad minim veniam,quis nostrud exerci tation ullamcorper suscipit lobortis nislut aliquip ex ea commodo consequat.Duis autem vel eum iriuredolor in hendrerit in vulputate velit esse molestie consequat,vel illum dolore eu feugiat nulla facilisis at vero eros etaccumsan et iusto odio dignissim qui blandit praesent luptatumzzril delenit augue duis dolore te feugait nulla facilisi.Nam liber tempor",
+      "tags": "todo, web, pomodoro",
+      "imageUrl": "",
+      "rating": 286,
+      "tutorials": [
+        {
+          "url": "www.mytutorial2.com",
+          "text": "My Tutorial"
+        },
+        {
+          "url": "www.supercooltutorial2.com",
+          "text": "My super cool Tutorial"
+        }
+      ],
+      "examples": [
+        {
+          "title": "CodeDraken's To Do List",
+          "imageUrl": "#",
+          "url": "#"
+        },
+        {
+          "title": "Bob's To Do List",
+          "imageUrl": "#",
+          "url": "#"
+        }
+      ]
+    },
+
+    {
+      "title": "Snake Game",
+      "description": "Create the classic snake game to test your development skills.",
+      "imageUrl": "",
+      "rating": 28954,
+      "tutorials": [
+        {
+          "url": "#",
+          "text": "How to make a snake game"
+        },
+        {
+          "url": "#",
+          "text": "Wikipedia Snake The Game"
+        }
+      ],
+      "examples": [
+        {
+          "title": "CodeDraken's Snake Game",
+          "imageUrl": "http://i.imgur.com/hTefvy6.png",
+          "url": "http://codepen.io/CodeDraken/pen/Wxaqmo"
+        },
+        {
+          "title": "Original Snake Game",
+          "imageUrl": "#",
+          "url": "#"
+        }
+      ]
+    },
+
+    {
+      "title": "Simon Says",
+      "description": "Create the classic simon says game. It shows a series of random button presses and I have to remember and enter them correctly.",
+      "imageUrl": "",
+      "rating": 3091,
+      "tutorials": [
+        {
+          "url": "#",
+          "text": "How to make a simon says game"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Simon_(game)",
+          "text": "Wikipedia Simon Says"
+        }
+      ],
+      "examples": [
+        {
+          "title": "CodeDraken's Simon Says Game",
+          "imageUrl": "http://i.imgur.com/WJLpY52.png",
+          "url": "http://codepen.io/CodeDraken/full/rLEoga"
+        },
+        {
+          "title": "Original Simon Game",
+          "imageUrl": "#",
+          "url": "#"
+        }
+      ]
+    },
+
+    {
+      "title": "Random Quote Generator",
+      "description": "Random quotes at the click of a button. ",
+      "tags": "random, web, quote, generator",
+      "imageUrl": "http://www.sevenquotes.com/wp-content/uploads/2013/01/ocean.jpg",
+      "rating": 500,
+      "tutorials": [
+        {
+          "url": "https://www.freecodecamp.com/challenges/build-a-random-quote-machine",
+          "text": "FreeCodeCampTutorial"
+        },
+        {
+          "url": "www.supercooltutorial.com",
+          "text": "My super cool Tutorial"
+        }
+      ],
+      "examples": [
+        {
+          "title": "Anisa's Quotes",
+          "imageUrl": "http://www.sevenquotes.com/wp-content/uploads/2013/01/ocean.jpg",
+          "url": "http://codepen.io/AnisaI/details/LbBXjr/"
+        },
+        {
+          "title": "Edd's Quotes",
+          "imageUrl": "/https://s-media-cache-ak0.pinimg.com/736x/13/59/da/1359daa4b85d428d90727cd7939e8619.jpg",
+          "url": "http://codepen.io/AnisaI/details/LbBXjr/"
+        }
+      ]
+    }
+
+  ]
+}
