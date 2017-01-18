@@ -1,56 +1,43 @@
 import React from 'react';
+import SliderRow from './SliderRow';
 
 const ExampleSlider = (props) => {
   
-  // let exampleHtml;
-  // let exampleRows = [];
-  // let exampleJsx;
+  let slideArray;
+  let genSlides;
+  let sliderHtml = '';
   
-  // // generate the HTML for slider
-  // if (props.examples) {
-  //   let examples = props.examples;
-  //   let exampleRow = [];
+  // generate the HTML for slider
+  if (props.examples) {
+    let examples = props.examples;
+    let output = [];
+    let spacing = 4;
     
-  //   for ( var i=0; i<examples.length; i++ ) {
-  //     if ( i % 4 === 0 ) {
-  //       exampleRows.push(exampleRow);
-  //       exampleRow = [];
-  //     } else {
-  //       exampleRow.push(examples[i]);
-  //     }
-  //   }
-    
-  //   for ( var j=0; j<exampleRows.length; j++ ) {
-  //     console.log('example rows ', exampleRows);
-  //     console.log('example rows J', exampleRows[j])
-  //     exampleJsx += (
-  //       <div className="item active">
-  //         <div className="row">
-          
-  //           {
-            
-  //             exampleRows[j].map( ( example, i ) => {
-  //               return (
-  //                 <div className="col-xs-6 col-sm-3">
-  //                   <a href={example.url} className="thumbnail">
-  //                   <img className="img-responsive" src={example.imageUrl} alt={example.title}/>
-  //                   </a>
-  //                 </div>
-  //               )
-  //             })
-  //           }
-            
-  //         </div>
-  //       </div>
-  //     )
-  //     console.log('example jsx', exampleJsx)
-  //   }
-    
-  // }
+    for (var i = 0; i < examples.length; i += spacing)
+    {
+        output[output.length] = examples.slice(i, i + spacing);
+    }
 
-  return (
-    <section>
-      <h2 className="text-center">Examples <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h2>
+    slideArray = output;
+    
+    // create slide rows
+    genSlides = slideArray.map( ( slides, i ) => {
+      let isFirst = i === 0 ? true : false;
+      
+      return (
+        <SliderRow key={'slider-row' + i} isFirst={isFirst} slides={slides} />
+      )
+    });
+    
+  }
+  
+  // check if there are any examples
+  if ( props.examples === undefined || props.examples.length < 1 ) {
+    // no examples no slider
+    sliderHtml = <h4 className="text-center">Looks like there are no examples to show! :(</h4>;
+  } else {
+    // has examples add a slider
+    sliderHtml = (
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -62,7 +49,7 @@ const ExampleSlider = (props) => {
               </ol>
               <div className="carousel-inner">
               
-                
+              { genSlides }
                 
               </div>
               <a data-slide="prev" href="#Carousel" className="left carousel-control">‹</a>
@@ -72,39 +59,16 @@ const ExampleSlider = (props) => {
         </div>
         
       </div>
+    );
+  }
+
+  return (
+    <section>
+      <h2 className="text-center">Examples <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h2>
+      {sliderHtml}
     </section>
   );
+
 }
 
 export default ExampleSlider;
-
-
-// <div className="item active">
-//   <div className="row">
-  
-//     <div className="col-xs-6 col-sm-3">
-//       <a href="#" className="thumbnail">
-//       <img className="img-responsive" src='' alt="Image"/>
-//       </a>
-//     </div>
-    
-//     <div className="col-xs-6 col-sm-3">
-//       <a href="#" className="thumbnail">
-//       <img className="img-responsive" src="https://media3.giphy.com/media/kMxR9EIfVMgmY/200_s.gif" alt="Image"/>
-//       </a>
-//     </div>
-    
-//     <div className="col-xs-6 col-sm-3">
-//       <a href="#" className="thumbnail">
-//       <img className="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" alt="Image"/>
-//       </a>
-//     </div>
-    
-//     <div className="col-xs-6 col-sm-3">
-//       <a href="#" className="thumbnail">
-//       <img className="img-responsive" src="http://dis.resized.images.s3.amazonaws.com/540x540/86249.jpeg" alt="Image"/>
-//       </a>
-//     </div>
-    
-//   </div>
-// </div>

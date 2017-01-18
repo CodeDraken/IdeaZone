@@ -23,12 +23,45 @@ class SearchPage extends Component {
     });
   }
   
+  sortData = () => {
+    // Will sort based on search input
+    // It will find: title -> relevant tags -> description in that order
+    // Shouldn't show duplicate matches ( if something matches a title and tags for example )
+    // Should display the result as a post
+    
+    let data = this.state.data;
+    let searchRegex = /(pomodoro)/ig;
+    let dataFiltered = [];
+    let results = [];
+
+    let titleSearch = data.filter( post => {
+      return post.title.match( searchRegex );
+    });
+    
+    let tagSearch = data.filter( post => {
+      return post.tags.includes( 'game' );
+    });
+    
+    let descriptionSearch = data.filter( post => {
+      return post.description.match( /Create/ig );
+    });
+    
+    
+    dataFiltered = titleSearch.concat(tagSearch, descriptionSearch);
+    results = dataFiltered.filter(function (item, pos) {return dataFiltered.indexOf(item) == pos});
+
+    // all matches merged, and duplicates removed
+    return results;
+    
+  }
+  
   render() {
+    
     return (
       <div>
         <div className="container">
           <SearchForm />
-          <PostContainer posts={this.state.data} />
+          <PostContainer posts={this.sortData()} />
         </div>
       </div>
     )
