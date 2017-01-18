@@ -21,7 +21,6 @@ class SearchPage extends Component {
         data: res.ideas
       });
     });
-    
   }
   
   render() {

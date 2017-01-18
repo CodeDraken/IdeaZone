@@ -5,16 +5,16 @@ const PostContainer = (props) => {
   
     const genPosts = props.posts.map( ( post, i ) => {
       return (
-        <Post key={post.title + i} postName={post.title} postDesc={post.description} hearts={post.rating} />
+        <Post key={post.title + i} postName={post.title} postDesc={post.description} hearts={post.rating} index={i} />
       )
     });
-  
   
   return (
     <div className="row">
       {genPosts}
     </div>
   );
+  
 }
 
 export default PostContainer;
