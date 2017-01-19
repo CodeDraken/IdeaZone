@@ -3,10 +3,8 @@ import { Link } from 'react-router';
 
 const Post = (props) => {
   
-  let colorClasses = ['post--green', 'post--purple', 'post--blue', 'post--mint', 'post--pink', 'post--grey', 'post--orange', ''];
-  let index = Math.floor(Math.random() * 7);
-  let color = 'post ' + colorClasses[index];
-  let ideaLink = '/idea?index=' + props.index;
+  let color = 'post ' + props.color;
+  let ideaLink = '/idea?id=' + props.id;
   
   let trimLengthTitle = 1000,
       trimLengthDesc = 1000,

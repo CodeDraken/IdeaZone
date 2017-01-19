@@ -13,7 +13,7 @@ class IdeaPage extends Component {
     super(props);
     this.state = {
       data: [],
-      index: ''
+      id: null
     }
   }
 
@@ -21,14 +21,20 @@ class IdeaPage extends Component {
     getData((res) => {
       this.setState({
         data: res.ideas,
-        index: this.props.location.query.index
+        id: this.props.location.query.id
       });
     });
   }
   
   render() {
-      let postData = this.state.data[this.state.index] || [];
-    
+      let data = this.state.data;
+      let id = this.state.id;
+      let postWithID = data.filter( (post) => {
+        return post.id == id;
+      });
+
+      let postData = postWithID[0] || [];
+
       return (
         <div className="container">
           <Link to='/'>
@@ -45,5 +51,3 @@ class IdeaPage extends Component {
 
 
 export default IdeaPage;
-
-// let postData = this.state.data[this.state.index] || [];
