@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ProjectInfo = (props) => {
   
   const hasImg = props.post.imageUrl !== undefined && props.post.imageUrl.length > 0 ? true : false;
   const projectImage = hasImg ? 
-                <img className="img-responsive project__img" src={props.post.imageUrl}></img> :
+                <img className="img-responsive project__img" src={props.post.imageUrl} alt={props.post.title + ' image not found'}></img> :
                 <div className="project__img--none"><h4 className="text-center">no project image provided</h4></div>;
                 
   let postTags = '';
   let propTags = props.post.tags;
   
   if ( propTags === undefined || propTags.length < 1 ) {
-    postTags = <a href="#"><em className="project__tags float-right">#idea</em></a>;
+    postTags = <a href="#"><em className="project__tags float-right">#notags</em></a>;
   } else {
     postTags = propTags.map( ( tag, i ) => {
       return (
-        <a key={tag + i} href="#"><em className="project__tags float-right">#{tag}&nbsp;</em></a>
+        <Link key={tag + i} to={`/?search=${tag}`}><em className="project__tags float-right">#{tag}&nbsp;</em></Link>
+        //<a key={tag + i} href="#"><em className="project__tags float-right">#{tag}&nbsp;</em></a>
       )
     });
     

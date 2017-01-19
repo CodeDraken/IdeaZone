@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import SearchForm from './SearchForm';
 import PostContainer from './PostContainer';
 
 import getData from '../data/getData';
@@ -14,19 +13,30 @@ class SearchPage extends Component {
       search: '',
       searchData: []
     }
-    
   }
   
   componentDidMount() {
-    let searchData = this.sortData(this.state.search)
+
     getData((res) => {
       this.setState({
         data: res.ideas
       });
-    });
-    this.setState({
-      searchData: searchData
-    });
+      
+      let searchLinked = this.props.location.query.search ? this.props.location.query.search : '';
+      let searchData;
+      
+      if ( searchLinked != undefined && searchLinked.length > 0 ) {
+        searchData = this.sortData(searchLinked);
+        window.location.hash = '#/';
+      } else {
+        searchData = this.sortData(this.state.search);
+      }
+      
+      this.setState({
+        searchData: searchData
+      });
+    }); // get data
+    
   }
   
   sortData = (search) => {
@@ -39,7 +49,7 @@ class SearchPage extends Component {
     let searchRegex = new RegExp( search, 'ig' );
     let dataFiltered = [];
     let results = [];
-
+    
     let titleSearch = data.filter( post => {
       return post.title.match( searchRegex );
     });
@@ -55,7 +65,7 @@ class SearchPage extends Component {
     
     
     dataFiltered = titleSearch.concat(tagSearch, descriptionSearch);
-    results = dataFiltered.filter(function (item, pos) {return dataFiltered.indexOf(item) == pos});
+    results = dataFiltered.filter(function (item, pos) {return dataFiltered.indexOf(item) === pos});
 
     // all matches merged, and duplicates removed
     this.setState({
@@ -63,6 +73,7 @@ class SearchPage extends Component {
       searchData: results
     });
     
+    return results;
     
   }
   

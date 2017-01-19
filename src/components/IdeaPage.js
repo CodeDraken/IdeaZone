@@ -30,7 +30,7 @@ class IdeaPage extends Component {
       let data = this.state.data;
       let id = this.state.id;
       let postWithID = data.filter( (post) => {
-        return post.id == id;
+        return Number(post.id) === Number(id);
       });
 
       let postData = postWithID[0] || [];
