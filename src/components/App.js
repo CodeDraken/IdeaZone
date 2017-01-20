@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import Navbar from './Navbar';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <h1>Main App Component</h1>
-      </div>
-    );
-  }
+import Navbar from './Navbar';
+import Footer from './Footer';
+
+// Appears on every page, other pages are passed to {props.children}
+const App = (props) => {
+  return (
+    <div>
+      <Navbar />
+      {props.children}
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

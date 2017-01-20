@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>IdeaZone</title>
+</head>
+
+<body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addIdeaModal" tabindex="-1" role="dialog" aria-labelledby="addIdeaModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="addIdeaModalLabel">Add an Idea</h4>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="form-group">
+              <label for="ideaFormTitle">Title</label>
+              <input type="text" class="form-control" id="ideaFormTitle" placeholder="Enter name of project idea">
+            </div>
+            <div class="form-group">
+              <label for="ideaFormDesc">Description</label>
+              <input type="text" class="form-control" id="ideaFormDesc" placeholder="Description of the project">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add Idea</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">IdeaZone</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Find Project Ideas</a></li>
+          <li><a href="#">My Favorite Projects</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <i class="fa fa-plus-circle navbar__icon" aria-hidden="true" title="Add an idea" data-toggle="modal" data-target="#addIdeaModal"><span class="navbar__icon">Add Idea</span></i>
+        </ul>
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <!-- root container -->
+  <div class="container">
+
+    <section class="project">
+      <h1 class="text-center project__title">Pomodoro Clock</h1>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <img class="img-responsive img--center project__img" src="%PUBLIC_URL%/img/pomodoro.png"></img>
+          <div class="project__stats">
+            <i class="fa fa-heart-o fa-lg project__heart" aria-hidden="true"></i>
+            <span class="project__favnum">&nbsp;500</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+          <p class="project__desc">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+            ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
+            et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi
+            non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium
+            lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in
+            futurum.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <h2 class="text-center">Examples <i class="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="Carousel" class="carousel slide">
+
+              <ol class="carousel-indicators">
+                <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#Carousel" data-slide-to="1"></li>
+                <li data-target="#Carousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Carousel items -->
+              <div class="carousel-inner">
+
+                <div class="item active">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="https://media3.giphy.com/media/kMxR9EIfVMgmY/200_s.gif" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="http://dis.resized.images.s3.amazonaws.com/540x540/86249.jpeg" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                  </div>
+                  <!--.row-->
+                </div>
+                <!--.item-->
+
+                <div class="item">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="https://d13yacurqjgara.cloudfront.net/users/153277/screenshots/2471489/pomodorofin.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                  </div>
+                  <!--.row-->
+                </div>
+                <!--.item-->
+
+                <div class="item">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <a href="#" class="thumbnail"><img class="img-responsive" src="%PUBLIC_URL%/img/pomodoro.png" alt="Image" style="max-width:100%;"></a>
+                    </div>
+                  </div>
+                  <!--.row-->
+                </div>
+                <!--.item-->
+
+              </div>
+              <!--.carousel-inner-->
+              <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+              <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+            </div>
+            <!--.Carousel-->
+
+          </div>
+        </div>
+      </div>
+      <!--.container-->
+    </section>
+
+    <section>
+      <h2 class="text-center">Tutorials & Links <i class="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h2>
+      <div class="row">
+
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+          <ul class="list-unstyled">
+            <li><a href="#">Pomodoro tutorial</a></li>
+            <li><a href="#">How to make a pomodoro clock</a></li>
+            <li><a href="#">Pomodoro Clock Wikipedia</a></li>
+            <li><a href="#">The Pomodoro Technique</a></li>
+            <li><a href="#">Lorem Pomodoro Ipsum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+          <ul class="list-unstyled">
+            <li><a href="#">Pomodoro tutorial</a></li>
+            <li><a href="#">How to make a pomodoro clock</a></li>
+            <li><a href="#">Pomodoro Clock Wikipedia</a></li>
+            <li><a href="#">The Pomodoro Technique</a></li>
+            <li><a href="#">Lorem Pomodoro Ipsum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+          <ul class="list-unstyled">
+            <li><a href="#">Pomodoro tutorial</a></li>
+            <li><a href="#">How to make a pomodoro clock</a></li>
+            <li><a href="#">Pomodoro Clock Wikipedia</a></li>
+            <li><a href="#">The Pomodoro Technique</a></li>
+            <li><a href="#">Lorem Pomodoro Ipsum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+          <ul class="list-unstyled">
+            <li><a href="#">Pomodoro tutorial</a></li>
+            <li><a href="#">How to make a pomodoro clock</a></li>
+            <li><a href="#">Pomodoro Clock Wikipedia</a></li>
+            <li><a href="#">The Pomodoro Technique</a></li>
+            <li><a href="#">Lorem Pomodoro Ipsum</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </div>
+  <!-- /root container -->
+
+  <!-- React injection -->
+  <div id="root"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

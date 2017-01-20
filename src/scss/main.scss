@@ -12,10 +12,15 @@
 'base/helpers';
 // 4. Layout-related sections
 @import 'layout/header',
-'layout/footer';
+'layout/footer',
+'layout/navbar';
 // 5. Components
-@import 'components/button';
+@import 'components/searchbar',
+'components/post',
+'components/project',
+'components/imageSlider',
+'components/reactlogo';
 // 6. Page-specific styles
-@import 'pages/home';
+@import 'pages/about';
 // 7. Themes
 @import 'themes/default';

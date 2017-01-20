@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -21,70 +22,7 @@
 
 <body>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <a class="navbar-brand" href="#">IdeaZone</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Find Project Ideas</a></li>
-          <li><a href="#">My Favorite Projects</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-label="Add Idea"></span></a></li>
-        </ul>
-
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-
-  <div class="container">
-
-    <header class="text-center">
-      <h1>Find Project Ideas</h1>
-      <div id="search-input">
-        <div class="input-group col-md-12">
-          <input type="text" class="form-control input-lg" placeholder="Search" />
-          <span class="input-group-btn">
-              <button class="btn btn-default btn-lg" type="button">
-                  <i class="glyphicon glyphicon-search"></i>
-              </button>
-          </span>
-        </div>
-      </div>
-    </header>
-
-    <section class="container">
-      <!-- stickies -->
-      <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3">
-          <div class="post">
-            <h3 class="post__title">Pomodoro Clock</h3>
-            <p class="post__desc">
-              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
-            </p>
-            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i>
-            <a class="post__link" href="#">View Examples</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-
-  <!-- Ignore root for now -->
+  <!-- React injection -->
   <div id="root"></div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

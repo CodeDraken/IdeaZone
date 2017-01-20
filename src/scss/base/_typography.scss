@@ -1,3 +1,31 @@
 /**
  * Basic typography style for copy text
  */
+
+.fa {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.fa-chevron-circle-left,
+.fa-chevron-circle-right {
+  color: lighten(#008c9e, 5%);
+  @include on-event() {
+    color: lighten(#008c9e, 15%);
+  }}
+
+.fa-heart-o {
+  color: $mandy;
+  @include on-event() {
+    color: darken($mandy, 10%);
+  }
+}
+
+.fa-plus-circle {
+  color: lighten(#008c9e, 5%);
+  ;
+  @include on-event() {
+    color: lighten(#008c9e, 15%);
+  }
+}
+

@@ -1,0 +1,70 @@
+// sticky note post listings
+.post {
+  background-color: #feee7d;
+  height: 200px;
+  padding: 1em;
+  margin-top: 1em;
+  overflow: hidden;
+  .post__title {
+    // trim in js at ~20 chars
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .post__desc {
+    color: #444;
+    height: 80px;
+    overflow: hidden;
+  }
+  .post__heart {
+    color: #ef5285;
+    font-weight: bold;
+    @include on-event() {
+      color: darken(#ef5285, 10%);
+    }
+  }
+  .post__link {
+    color: #519D9E;
+    text-align: right;
+    &:hover {
+      text-decoration: none;
+      color: lighten(#519D9E, 10%);
+    }
+  }
+  .post__favnum {
+    color: $post__favnum;
+    cursor: default;
+  }
+}
+
+.post--green {
+  background-color: $post--green;
+}
+
+.post--purple {
+  background-color: $post--purple;
+}
+
+.post--blue {
+  background-color: $post--blue;
+}
+
+.post--mint {
+  background-color: $post--mint;
+}
+
+.post--pink {
+  background-color: $post--pink;
+}
+
+.post--grey {
+  background-color: $post--grey;
+}
+
+.post--orange {
+  background-color: $post--orange;
+}
+
+.post__nav {
+  margin: 1em 0;
+}

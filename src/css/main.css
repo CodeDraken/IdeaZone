@@ -406,7 +406,9 @@ template {
  * Set up a decent box model on the root element
  */
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%; }
 
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
@@ -419,8 +421,243 @@ html {
 *::after {
   box-sizing: inherit; }
 
+body {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 5.5em; }
+
+a {
+  color: #308675;
+  text-decoration: none;
+  transition: 0.2s color ease-in-out; }
+  a:hover, a:active, a:focus {
+    color: #6CCAB7;
+    text-decoration: none; }
+
+h1,
+h2,
+h3,
+h4 {
+  color: #6CCAB7;
+  font-weight: bold;
+  margin: 1em 0; }
+
+h1 {
+  font-size: 2.5em; }
+
+h2 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1.5em; }
+
+h4 {
+  font-size: 1.25em; }
+
+section {
+  margin: 0 0 3em 0; }
+
 /**
  * Basic typography style for copy text
  */
+.fa {
+  cursor: pointer;
+  transition: color 0.2s ease-in-out; }
+
+.fa-chevron-circle-left,
+.fa-chevron-circle-right {
+  color: #00a3b8; }
+  .fa-chevron-circle-left:hover, .fa-chevron-circle-left:active, .fa-chevron-circle-left:focus,
+  .fa-chevron-circle-right:hover,
+  .fa-chevron-circle-right:active,
+  .fa-chevron-circle-right:focus {
+    color: #00d0eb; }
+
+.fa-heart-o {
+  color: #F36D76; }
+  .fa-heart-o:hover, .fa-heart-o:active, .fa-heart-o:focus {
+    color: #ef3e4a; }
+
+.fa-plus-circle {
+  color: #00a3b8; }
+  .fa-plus-circle:hover, .fa-plus-circle:active, .fa-plus-circle:focus {
+    color: #00d0eb; }
+
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
+
+.img--center {
+  display: block;
+  margin: 0 auto; }
+
+footer {
+  border-top: 1px solid #ddd;
+  padding: 0.5em 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.5em;
+  line-height: 2;
+  color: #555;
+  background-color: #e1e7e8; }
+
+.navbar__icon {
+  padding: 10px 15px;
+  font-size: 1.2em; }
+  .navbar__icon span {
+    font-family: 'Lato', sans-serif; }
+  @media only screen and (min-width: 768px) {
+    .navbar__icon {
+      padding-top: 15px;
+      font-size: 2em; }
+      .navbar__icon span {
+        display: none; } }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background: none;
+  border-bottom: 3px solid transparent;
+  color: #959595; }
+
+.navbar-default .navbar-nav > li {
+  border-right: 1px solid #ddd; }
+  .navbar-default .navbar-nav > li:first-child {
+    border-left: 1px solid #ddd; }
+
+.navbar-brand {
+  border-bottom: 3px solid transparent;
+  font-size: 1.5em;
+  font-weight: 600; }
+
+.navbar-default .navbar-nav > li > a {
+  border-bottom: 3px solid transparent;
+  color: #555;
+  font-size: 1.1em;
+  transition: color 0.2s ease-in-out, border 0.2s ease-in-out; }
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
+    color: #7b7b7b;
+    border-bottom: 3px solid #D7FFF1; }
+
+.post {
+  background-color: #feee7d;
+  height: 200px;
+  padding: 1em;
+  margin-top: 1em;
+  overflow: hidden; }
+  .post .post__title {
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden; }
+  .post .post__desc {
+    color: #444;
+    height: 80px;
+    overflow: hidden; }
+  .post .post__heart {
+    color: #ef5285;
+    font-weight: bold; }
+    .post .post__heart:hover, .post .post__heart:active, .post .post__heart:focus {
+      color: #eb2364; }
+  .post .post__link {
+    color: #519D9E;
+    text-align: right; }
+    .post .post__link:hover {
+      text-decoration: none;
+      color: #6eb4b4; }
+  .post .post__favnum {
+    color: #6d9d88;
+    cursor: default; }
+
+.post--green {
+  background-color: #cff09e; }
+
+.post--purple {
+  background-color: #D1B6E1; }
+
+.post--blue {
+  background-color: #e1eef6; }
+
+.post--mint {
+  background-color: #D7FFF1; }
+
+.post--pink {
+  background-color: #FADAD8; }
+
+.post--grey {
+  background-color: #e4e7ec; }
+
+.post--orange {
+  background-color: #FDD692; }
+
+.post__nav {
+  margin: 1em 0; }
+
+.project .project__desc {
+  font-size: 1.1em;
+  line-height: 2; }
+.project .project__img {
+  margin: 0.5em 0em;
+  width: 100%; }
+.project .project__img--none {
+  background-color: #333;
+  display: table;
+  height: 35vh;
+  width: 100%; }
+  .project .project__img--none h4 {
+    color: #eee;
+    display: table-cell;
+    vertical-align: middle; }
+.project .project__stats {
+  margin: 1em 0; }
+.project .project__favnum {
+  color: #6d9d88;
+  cursor: default; }
+
+.carousel {
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px; }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .carousel .carousel-inner .row .col-xs-6:nth-child(2n+1) {
+    clear: both; } }
+/* The controlsy */
+.carousel-control {
+  left: -12px;
+  height: 40px;
+  width: 40px;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  margin-top: 90px; }
+
+.carousel-control.right {
+  right: -12px; }
+
+/* The indicators */
+.carousel-indicators {
+  right: 50%;
+  top: auto;
+  bottom: -10px;
+  margin-right: -19px; }
+
+/* The colour of the indicators */
+.carousel-indicators li {
+  background: #cecece; }
+
+.carousel-indicators .active {
+  background: #428bca; }
+
+.react-logo {
+  animation: react-logo-spin infinite 20s linear;
+  height: 2em; }
+
+@keyframes react-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=main.css.map */

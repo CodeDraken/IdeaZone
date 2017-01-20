@@ -1,0 +1,30 @@
+.project {
+  .project__title {}
+  .project__desc {
+    font-size: 1.1em;
+    line-height: 2;
+  }
+  .project__img {
+    margin: 0.5em 0em;
+    width: 100%;
+  }
+  .project__img--none {
+    background-color: #333;
+    display: table;
+    height: 35vh;
+    width: 100%;
+    h4 {
+      color: #eee;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .project__stats {
+    margin: 1em 0;
+  }
+  .project__favnum {
+    color: $post__favnum;
+    cursor: default;
+  }
+  .project__tags {}
+}

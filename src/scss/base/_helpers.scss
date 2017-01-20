@@ -1,3 +1,15 @@
 // -----------------------------------------------------------------------------
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.img--center {
+  display: block;
+  margin: 0 auto;
+}

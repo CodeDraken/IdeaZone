@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/img/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>IdeaZone</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">IdeaZone</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Find Project Ideas</a></li>
+          <li><a href="#">My Favorite Projects</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <i class="fa fa-plus-circle fa-2x navbar__icon" aria-hidden="true" title="Add an idea" data-toggle="modal" data-target="#addIdeaModal"></i>
+        </ul>
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+
+    <header class="text-center clearfix">
+      <h1>Find Project Ideas or Add an Idea<i class="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h1>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addIdeaModal" tabindex="-1" role="dialog" aria-labelledby="addIdeaModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="addIdeaModalLabel">Add an Idea</h4>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-group">
+                <label for="ideaFormTitle">Title</label>
+                <input type="text" class="form-control" id="ideaFormTitle" placeholder="Enter name of project idea">
+              </div>
+              <div class="form-group">
+                <label for="ideaFormDesc">Description</label>
+                <input type="text" class="form-control" id="ideaFormDesc" placeholder="Description of the project">
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add Idea</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="container">
+      <!--<i class="fa fa-chevron-circle-left fa-2x post__prev" aria-hidden="true"></i>-->
+      <div id="search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="form-control input-lg" placeholder="Search" />
+          <span class="input-group-btn">
+              <button class="btn btn-default btn-lg" type="button">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+          </span>
+        </div>
+      </div>
+
+      <!-- stickies row -->
+      <div class="row ">
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--blue">
+            <h3 class="post__title">long project title abcdsfsdfsd</h3>
+            <p class="post__desc">
+              And a long lorem ipsum description? We can trim it in js and add ... at the end Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--green">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--purple">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--mint">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--pink">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--grey">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="post post--orange">
+            <h3 class="post__title">Pomodoro Clock</h3>
+            <p class="post__desc">
+              A timer with 25 minute work intervals 5 minute breaks and one long 15 minute break every 4 sessions. With the option to set custom times.
+            </p>
+            <i class="fa fa-heart-o post__heart" aria-hidden="true"></i><span class="post__favnum">&nbsp;500</span>
+            <a class="post__link float-right " href="#">View Examples</a>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /stickies row -->
+
+      <!--<i class="fa fa-chevron-circle-right fa-2x post__next" aria-hidden="true"></i>-->
+
+      <div class="clearfix post__nav">
+        <i class="fa fa-chevron-circle-left fa-3x float-left" aria-hidden="true"></i>
+        <i class="fa fa-chevron-circle-right fa-3x float-right" aria-hidden="true"></i>
+      </div>
+
+    </section>
+
+  </div>
+  <!-- /container -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          Copyright &copy; 2017 IdeaZone
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Ignore root for now -->
+  <div id="root"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

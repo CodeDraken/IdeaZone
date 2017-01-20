@@ -8,6 +8,8 @@
 
 html {
   box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
 }
 
 
@@ -22,4 +24,48 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 5.5em;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  transition: 0.2s color ease-in-out;
+  @include on-event() {
+    color: $link--hover;
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $downy;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+section {
+  margin: 0 0 3em 0;
 }

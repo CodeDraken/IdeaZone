@@ -1,0 +1,46 @@
+.navbar__icon {
+  padding: 10px 15px;
+  font-size: 1.2em;
+  span {
+    font-family: 'Lato', sans-serif;
+  }
+  @media only screen and (min-width: 768px) {
+    padding-top: 15px;
+    font-size: 2em;
+    span {
+      display: none;
+    }
+  }
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background: none;
+  border-bottom: 3px solid transparent;
+  color: $nav-link--active;
+}
+
+.navbar-default .navbar-nav>li {
+  border-right: 1px solid #ddd;
+  &:first-child {
+    border-left: 1px solid #ddd;
+  }
+}
+
+.navbar-brand {
+  border-bottom: 3px solid transparent;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.navbar-default .navbar-nav>li>a {
+  border-bottom: 3px solid transparent;
+  color: $nav-link;
+  font-size: 1.1em;
+  transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
+  @include on-event() {
+    color: lighten($nav-link, 15%);
+    border-bottom: 3px solid $post--mint;
+  }
+}

@@ -1,3 +1,14 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+footer {
+  border-top: 1px solid #ddd;
+  padding: 0.5em 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.5em;
+  line-height: 2;
+  color: $nav-link;
+  background-color: #e1e7e8;
+}
