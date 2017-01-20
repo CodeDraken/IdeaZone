@@ -1,13 +1,16 @@
 import React from 'react';
 import Post from './Post';
 
+// container for all the stickies
 const PostContainer = (props) => {
-    
-    let colorClasses = ['post--green', 'post--purple', 'post--blue', 'post--mint', 'post--pink', 'post--grey', 'post--orange', ''];
-    let index = 0;
+  
+    // color classes, adds them left to right then starts at 0 again
+    let colorClasses = ['post--green', 'post--purple', 'post--blue', 'post--mint', 'post--pink', 'post--grey', 'post--orange', ''],
+    index = 0;
     const genPosts = props.posts.map( ( post, i ) => {
       let color = colorClasses[index];
       index >= colorClasses.length ? index = 0 : index++;
+      // generate stickies / posts
       return (
         <Post color={color} key={post.title + '#' + post.id} postName={post.title} postDesc={post.description} hearts={post.rating} id={post.id} />
       )
@@ -22,5 +25,3 @@ const PostContainer = (props) => {
 }
 
 export default PostContainer;
-
-// <Post postName="Pomodoro Clock1" postDesc="A timer with 25 minute work intervals" hearts={500} />

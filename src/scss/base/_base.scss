@@ -8,6 +8,8 @@
 
 html {
   box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
 }
 
 
@@ -26,6 +28,7 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
+  margin-bottom: 5.5em;
 }
 
 a {

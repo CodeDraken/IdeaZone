@@ -1,3 +1,5 @@
+// Using inline searchform instead
+
 // import React, { Component } from 'react';
 
 // class SearchForm extends Component {

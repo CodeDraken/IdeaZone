@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+// sticky note on the search page
 const Post = (props) => {
+  // color class passed in specific order, links to idea page passing in id
+  let color = 'post ' + props.color,
+  ideaLink = '/idea?id=' + props.id;
   
-  let color = 'post ' + props.color;
-  let ideaLink = '/idea?id=' + props.id;
-  
+  // trim text length
   let trimLengthTitle = 1000,
       trimLengthDesc = 1000,
       browserWidth = window.outerWidth;
@@ -30,6 +32,7 @@ const Post = (props) => {
       trimLengthDesc = 120;
     }
   
+  // if longer than trimLength trim it and add ... to the end
   let postTitle = props.postName.length > trimLengthTitle ? props.postName.substring(0, trimLengthTitle) + '...' : props.postName,
       postDesc  = props.postDesc.length > trimLengthDesc ? props.postDesc.substring(0, trimLengthDesc) + '...' : props.postDesc;
   

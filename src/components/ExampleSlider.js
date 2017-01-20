@@ -1,27 +1,30 @@
 import React from 'react';
 import SliderRow from './SliderRow';
 
+// Slider of examples on the idea page
 const ExampleSlider = (props) => {
   
   let slideArray;
   let genSlides;
   let sliderHtml = '';
   
-  // generate the HTML for slider
+  // generate the HTML for slider if there are examples
   if (props.examples) {
     let examples = props.examples;
     let output = [];
+    // 4 slides each row
     let spacing = 4;
     
-    for (var i = 0; i < examples.length; i += spacing)
-    {
-        output[output.length] = examples.slice(i, i + spacing);
+    for (var i = 0; i < examples.length; i += spacing) {
+      // create an array for rows [ [s,s,s,s], [s,s,s,s] ]
+      output[output.length] = examples.slice(i, i + spacing);
     }
-
+    
     slideArray = output;
     
-    // create slide rows
+    // create slide rows html
     genSlides = slideArray.map( ( slides, i ) => {
+      // if it's first add active class
       let isFirst = i === 0 ? true : false;
       
       return (
@@ -34,7 +37,7 @@ const ExampleSlider = (props) => {
   // check if there are any examples
   if ( props.examples === undefined || props.examples.length < 1 ) {
     // no examples no slider
-    sliderHtml = <h4 className="text-center">Looks like there are no examples to show! :(</h4>;
+    sliderHtml = <h4 className="text-center">No one added an example show off yours here!</h4>;
   } else {
     // has examples add a slider
     sliderHtml = (
@@ -64,7 +67,7 @@ const ExampleSlider = (props) => {
 
   return (
     <section>
-      <h2 className="text-center">Examples <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addIdeaModal" aria-hidden="true" title="Add an idea"></i></h2>
+      <h2 className="text-center">Examples <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addModal" aria-hidden="true" title="Add an idea"></i></h2>
       {sliderHtml}
     </section>
   );
