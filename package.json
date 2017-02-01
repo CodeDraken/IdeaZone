@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "firebase": "^3.6.7",
+    "moment": "^2.17.1",
     "react-scripts": "0.8.5"
   },
   "dependencies": {

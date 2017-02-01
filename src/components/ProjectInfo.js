@@ -40,6 +40,13 @@ const ProjectInfo = (props) => {
           </div>
         </div>
       </div>
+      
+      <div className = "row">
+        <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+          <p className ="created__by">Created by: Test User</p>
+          <p className = "created__at">Created at: Jan. 31</p>
+        </div>
+      </div>
 
       <div className="row">
         <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 text-center">

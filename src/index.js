@@ -13,8 +13,8 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <Route path="idea" component={IdeaPage} />
-      <IndexRoute component={SearchPage} />
       <Route path="about" component={AboutPage} />
+      <IndexRoute component={SearchPage} />
     </Route>
   </Router>,
   document.getElementById('root')

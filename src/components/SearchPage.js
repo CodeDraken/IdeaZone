@@ -17,6 +17,7 @@ class SearchPage extends Component {
   }
   
   componentDidMount() {
+    console.log('props data searchPage: ', this.props.data);
     // load data, only runs when data is finished loading
     getData((res) => {
       // update state to data
