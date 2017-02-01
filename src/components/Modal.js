@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import moment from 'moment';
+
 import firebase, {firebaseRef} from './../data/firebase';
 
 // will take props to determine type of modal rendered & functions
@@ -13,16 +15,17 @@ class Modal extends Component {
     let ideaDesc = this.refs.ideaDesc.value;
     let ideaImgUrl = this.refs.ideaImgUrl.value;
     
-    console.log('input test: ', ideaTitle, ideaDesc, ideaImgUrl)
     // a test user until we change state to hold current logged in user
-    const user = "dummy";
+    let user = 'tester';
+    
+    console.log('input test: ', user, ideaTitle, ideaDesc, ideaImgUrl)
     
     // new idea to push up
     let newIdeaRef = ideasRef.push({
       title: ideaTitle,
       description: ideaDesc,
       owner: user,
-      createdAt: "0",
+      createdAt: moment().unix(),
       tags: ["test", "dummy"],
       imageUrl: ideaImgUrl,
       rating: 0,

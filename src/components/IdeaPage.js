@@ -21,6 +21,7 @@ class IdeaPage extends Component {
   }
 
   componentDidMount() {
+    console.log('props data ideaPage: ', this.props.data);
     getData((res) => {
       this.setState({
         data: res.ideas,
