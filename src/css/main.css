@@ -596,7 +596,8 @@ footer {
 
 .project .project__desc {
   font-size: 1.1em;
-  line-height: 2; }
+  line-height: 2;
+  text-align: justify; }
 .project .project__img {
   margin: 0.5em 0em;
   width: 100%; }
@@ -614,6 +615,16 @@ footer {
 .project .project__favnum {
   color: #6d9d88;
   cursor: default; }
+
+.created__at {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  font-weight: bold; }
+
+.created__by {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  font-weight: bold; }
 
 .carousel {
   margin-bottom: 0;

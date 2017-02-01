@@ -6,34 +6,34 @@ import firebase, {firebaseRef} from './../data/firebase';
 // will take props to determine type of modal rendered & functions
 class Modal extends Component {
   
-  handleAddIdea = (e) => {
-    e.preventDefault();
-    // the ideas object in the database
-    const ideasRef = firebaseRef.child('ideas');
-    // the details to push up
-    let ideaTitle = this.refs.ideaTitle.value;
-    let ideaDesc = this.refs.ideaDesc.value;
-    let ideaImgUrl = this.refs.ideaImgUrl.value;
+  // handleAddIdea = (e) => {
+  //   e.preventDefault();
+  //   // the ideas object in the database
+  //   const ideasRef = firebaseRef.child('ideas');
+  //   // the details to push up
+  //   let ideaTitle = this.refs.ideaTitle.value;
+  //   let ideaDesc = this.refs.ideaDesc.value;
+  //   let ideaImgUrl = this.refs.ideaImgUrl.value;
     
-    // a test user until we change state to hold current logged in user
-    let user = 'tester';
+  //   // a test user until we change state to hold current logged in user
+  //   let user = 'tester';
     
-    console.log('input test: ', user, ideaTitle, ideaDesc, ideaImgUrl)
+  //   console.log('input test: ', user, ideaTitle, ideaDesc, ideaImgUrl)
     
-    // new idea to push up
-    let newIdeaRef = ideasRef.push({
-      title: ideaTitle,
-      description: ideaDesc,
-      owner: user,
-      createdAt: moment().unix(),
-      tags: ["test", "dummy"],
-      imageUrl: ideaImgUrl,
-      rating: 0,
-      tutorials: null,
-      examples: null
-    });
-    console.log('added idea!');
-  }
+  //   // new idea to push up
+  //   let newIdeaRef = ideasRef.push({
+  //     title: ideaTitle,
+  //     description: ideaDesc,
+  //     owner: user,
+  //     createdAt: moment().unix(),
+  //     tags: ["test", "dummy"],
+  //     imageUrl: ideaImgUrl,
+  //     rating: 0,
+  //     tutorials: null,
+  //     examples: null
+  //   });
+  //   console.log('added idea!');
+  // }
   
   // TODO add tags input, install and use Moment, 
   
