@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
 
 import firebase, {firebaseRef} from './../data/firebase';
 import Navbar from './Navbar';
@@ -8,31 +9,43 @@ import Footer from './Footer';
 class App extends Component {
   constructor(props) {
     super(props);
-    
+    // user is the currently logged in user id or undefined, ideas are all of the ideas,
+    // users array of user ids and their favorites
     this.state = {
       user: undefined,
       ideas: [],
-      users: {}
+      users: []
     };
   }
   
   componentDidMount() {
     const auth = firebase.auth();
     
-    // data handler
+    // data handler runs when Firebase data changes and on first load
     firebaseRef.on('value', snapshot => {
       const users = snapshot.val().users || {};
       const ideas = snapshot.val().ideas || {};
       
-      //console.log('snapshot val: ', snapshot.val());
-      
-      let newUsers = [];
+      let newUsers = users;
       let newIdeas = [];
       
-      // load ideas
-      // TODO fix tutorials
+      // load ideas | loop through the object of idea objects properly converting everything as needed
       Object.keys(ideas).forEach( (ideaId) => {
-        let { createdAt, description, examples, imageUrl, owner, rating, tags, title, tutorials } = ideas[ideaId];
+        
+        // the current idea object
+        let currentIdeaObject = ideas[ideaId];
+        
+        // load the non-array properties
+        let { createdAt, description, imageUrl, owner, rating, title } = currentIdeaObject;
+        
+        // firebase uses objects for arrays so convert the data that's suppose to be an array to an array
+        let arrayExamples = _.toArray(currentIdeaObject.examples),
+        arrayTags = _.toArray(currentIdeaObject.tags),
+        arrayTutorials = _.toArray(currentIdeaObject.tutorials);
+        
+        /* //////////////////
+        TODO test more than 1 ideas on the data before removing old code
+        
         let arrayExamples = [], arrayTags = [], arrayTutorials = [];
         
         // make the examples object into an array
@@ -50,6 +63,9 @@ class App extends Component {
             arrayTutorials.push(ideas[ideaId].tutorials[tutorial]);
         });
         
+        ////////////////// */
+        
+        // push the idea object onto our newIdeas array
         newIdeas.push({
           ideaId,
           createdAt,
@@ -63,9 +79,27 @@ class App extends Component {
           tutorials: arrayTutorials
         });
         
+      }); // /load ideas
+      
+      
+      // load each user and their favorites 
+      // TODO: figure out which method to use for users: array or object version
+      
+      // object version of users
+      // _.forIn(newUsers, (value, key) => {
+      //   newUsers[key].favorites = _.toArray(newUsers[key].favorites);
+      // });
+      
+      // array version
+      newUsers = _.toArray(users).map( user => {
+        return {
+          ...user,
+          favorites: _.toArray(user.favorites)
+        };
       });
       
-      // load each user and their favorites
+      /* //////////////////
+        TODO test more than 1 user on the data before removing old code
       Object.keys(users).forEach( (userId) => {
         let userFavorites = [];
         
@@ -79,12 +113,17 @@ class App extends Component {
         });
 
       });
-      
+      ////////////////// */
       
       console.log('New users: ', newUsers);
       console.log('New ideas: ', newIdeas);
       
-    });
+      this.setState({
+        users: newUsers,
+        ideas: newIdeas
+      });
+      
+    }); // firebase on value
     
     // authentication
     auth.onAuthStateChanged(user => {
@@ -97,17 +136,16 @@ class App extends Component {
           user: undefined
         });
       }
-      console.log('state user: ', this.state.user);
     });
-    console.log('state: ', this.state);
-  }
+    
+  } // component did mount
   
   render() {
     return (
       <div>
         <Navbar />
         {this.props.children && React.cloneElement(this.props.children, {
-          data: "data passed in!"
+          data: this.state
         })}
         <Footer />
       </div>
