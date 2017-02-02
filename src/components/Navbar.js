@@ -55,12 +55,10 @@ class Navbar extends Component {
             </ul>
     
             <ul className="nav navbar-nav navbar-right">
+              <button onClick={this.handleSignIn} type="button" className="btn btn-success">Login</button>
+              <button onClick={this.handleSignOut} type="button" className="btn btn-danger">Sign Out</button>
               <i className="fa fa-plus-circle fa-2x navbar__icon" aria-hidden="true" title="Add an idea" data-toggle="modal" data-target="#addModal"></i>
-            </ul>
-            
-            <ul className ="nav navbar-nav navbar-right">
-            <button onClick={this.handleSignIn} type="button" className="btn btn-success">Login</button>
-            <button onClick={this.handleSignOut} type="button" className="btn btn-danger">Sign Out</button>
+              <p>Welcome, {this.props.username}</p>
             </ul>
     
           </div>
