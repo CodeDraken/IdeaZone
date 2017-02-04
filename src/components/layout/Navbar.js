@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { Link, IndexLink } from 'react-router';
-import firebase, {firebaseRef, githubProvider} from './../data/firebase';
+import firebase, {firebaseRef, githubProvider, auth} from './../../data/firebase';
 
 
 // Navigation bar that renders on every page
 class Navbar extends Component {
   
   handleSignIn = () => {
-    return firebase.auth().signInWithPopup(githubProvider).then( (result) => {
+    return auth.signInWithPopup(githubProvider).then( (result) => {
       console.log('login success ', result);
     }, (error) => {
       console.log('login failed: ', error);
@@ -15,7 +15,7 @@ class Navbar extends Component {
   }
   
   handleSignOut = () => {
-    return firebase.auth().signOut().then( () => {
+    return auth.signOut().then( () => {
       console.log('signed out');
     });
   }

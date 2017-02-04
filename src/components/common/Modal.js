@@ -1,7 +1,9 @@
+// OLD MODAL
+
 import React, {Component} from 'react';
 import moment from 'moment';
 
-import firebase, {firebaseRef, firebaseIdeasRef} from './../data/firebase';
+import firebase, {firebaseRef, firebaseIdeasRef} from './../../data/firebase';
 
 // will take props to determine type of modal rendered & functions
 class Modal extends Component {

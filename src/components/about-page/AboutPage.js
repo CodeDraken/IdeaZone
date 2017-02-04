@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import ideaBulb from '../../public/img/ideaBulb.jpg';
+import ideaBulb from './../../../public/img/ideaBulb.jpg';
 
 // static about / info page
 const AboutPage = () => {

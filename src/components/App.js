@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import _ from 'lodash';
+import moment from 'moment';
 
 import firebase, {firebaseRef, auth, firebaseIdeasRef, firebaseUsersRef} from './../data/firebase';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from './layout/Navbar';
+import Footer from './layout/Footer';
 
 // Appears on every page, other pages are passed to {props.children}
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
   } // /componentDidUpdate
   
   componentDidMount() {
+
     
     // authentication
     auth.onAuthStateChanged(user => {
@@ -84,27 +86,80 @@ class App extends Component {
     
   } // /componentDidMount
   
+  addIdea = (ideaTitle, ideaDesc, ideaImgUrl, ideaTags) => {
+    // only logged in users can add ideas
+    if (auth.currentUser) {
+      // new idea to push up
+      let newIdea = {
+        title: ideaTitle,
+        description: ideaDesc,
+        owner: auth.currentUser.uid,
+        ownerName: auth.currentUser.displayName,
+        createdAt: moment().unix(),
+        tags: ideaTags.split(', '),
+        imageUrl: ideaImgUrl,
+        rating: 0,
+        tutorials: null,
+        examples: null
+      }
+      
+      let newIdeaRef = firebaseIdeasRef.push(newIdea);
+    }
+  } // /addIdea
+  
+  addIdeaFavorite = (ideaID) => {
+    
+  }
+  
   render() {
     // use this.props.children.type.name to identify component being rendered
     //console.log('props.children: ', this.props.children);
-    let componentToRender = this.props.children.type.name;
-    let dataToPass;
     
+    // use this.props.location.query.id for url arguments
+    //console.log('url args: ', this.props.location.query.id);
+    
+    const defaultIdeaData = {
+      createdAt: 12345,
+      description: 'loading data...',
+      examples: [],
+      imageUrl: '',
+      owner: 'Developer',
+      ownerName: 'Anonymous',
+      rating: 0,
+      tags: [],
+      title: 'Loading data...',
+      tutorials: []
+    };
+    
+    let componentToRender = this.props.children.type.name;
+    // object of props to pass
+    let dataToPass = {};
+    
+    // props to pass in depending on component type
     switch(componentToRender) {
       case 'SearchPage':
-        dataToPass = this.state.ideas;
+        dataToPass = {
+          ideas: this.state.ideas,
+          handleAddIdea: this.addIdea
+        };
+        break;
+      case 'IdeaPage':
+        let postID = this.props.location.query.id;
+        let postData = _.at(this.state.ideas, postID);
+        dataToPass = {
+          postData: postData[0] || defaultIdeaData,
+          defaultIdeaData
+        };
         break;
       default:
-        dataToPass = null;
+        dataToPass = {};
     }
     
     return (
       <div>
         <Navbar username={this.state.username} />
         
-          {this.props.children && React.cloneElement(this.props.children, {
-            data: dataToPass
-          })}
+          {this.props.children && React.cloneElement(this.props.children, dataToPass)}
           
         <Footer />
       </div>

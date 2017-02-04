@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 
 import PostContainer from './PostContainer';
-import Modal from './Modal';
+import ModalIdea from './../common/ModalIdea';
 
 // Search page / posts page
 class SearchPage extends Component {
@@ -36,7 +36,7 @@ class SearchPage extends Component {
     // Should display the result as a post
     
     // variables
-    let data = this.props.data,
+    let data = this.props.ideas,
         dataFiltered = [],
         results = [];
     
@@ -93,11 +93,12 @@ class SearchPage extends Component {
   
   render() {
     // if there's search data use that otherwise use the normal unsorted data
-    let posts = this.state.searchData === undefined || this.state.searchData.length < 1 ? this.props.data : this.state.searchData;
+    let posts = this.state.searchData === undefined || this.state.searchData.length < 1 ? this.props.ideas : this.state.searchData;
     // TODO move modal to app.js split into 3 components
     return (
       <div>
-        <Modal modalType='add-idea' />
+        <ModalIdea handleAddIdea={this.props.handleAddIdea} />
+        
         <div className="container">
         
           <header className="text-center clearfix">
