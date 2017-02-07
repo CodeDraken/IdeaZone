@@ -13,8 +13,10 @@ class App extends Component {
     this.state = {
       userID: undefined,
       username: 'Anonymous',
+      userAvatar: undefined,
       ideas: undefined,
-      userFavorites: undefined
+      userFavorites: undefined,
+      currentUserRef: undefined
     };
   }
   
@@ -24,7 +26,6 @@ class App extends Component {
   } // /componentDidUpdate
   
   componentDidMount() {
-
     
     // authentication
     auth.onAuthStateChanged(user => {
@@ -32,7 +33,8 @@ class App extends Component {
         // if someone is logged in
         this.setState({
           userID: user.uid,
-          username: auth.currentUser.displayName
+          username: auth.currentUser.displayName,
+          userAvatar: user.photoURL
         });
         
         // check if current user exists in users db
@@ -52,8 +54,10 @@ class App extends Component {
           } else {
             // user is in database load their favorites
             this.setState({
-              userFavorites: _.toArray(usersData[_.findKey(usersData, {'id': auth.currentUser.uid})].favorites) || []
+              userFavorites: _.toArray(usersData[_.findKey(usersData, {'id': auth.currentUser.uid})].favorites) || [],
+              currentUserRef: _.findKey(usersData, {'id': auth.currentUser.uid})
             });
+            watchCurrentUser();
           }
         }); // /user.once
         
@@ -65,6 +69,16 @@ class App extends Component {
         });
       }
     }); // /auth change
+    
+    // on currentUserData change
+    const watchCurrentUser = () => {
+      firebaseUsersRef.child(this.state.currentUserRef).on('value', snapshot => {
+        //console.log('user change: ', snapshot.val());
+        this.setState({
+          userFavorites: _.toArray(snapshot.val().favorites)
+        });
+      });
+    } // /currentUserData change
     
     // ideas data change
     firebaseIdeasRef.on('value', snapshot => {
@@ -83,6 +97,7 @@ class App extends Component {
         ideas: parsedIdeas
       });
     }); // /ideas data change
+  
     
   } // /componentDidMount
   
@@ -104,12 +119,35 @@ class App extends Component {
       }
       
       let newIdeaRef = firebaseIdeasRef.push(newIdea);
+    } else {
+      alert('Please sign in to add ideas!');
     }
   } // /addIdea
   
-  addIdeaFavorite = (ideaID) => {
-    
-  }
+  addFavoriteIdea = (ideaID) => {
+    // pass current user id to post for rendering heart
+    // receive post id when clicking heart
+    if (auth.currentUser) {
+      // test if idea id is already a favorite -1 if not a favorite else index
+      let notAFavorite = _.findIndex(this.state.userFavorites, (val) => {
+        return val === ideaID;
+      });
+
+      // -1 means not a favorite
+      if (notAFavorite < 0) {
+        let newFavoriteRef = firebaseUsersRef.child(this.state.currentUserRef).child('favorites').push(ideaID).then(() => {
+          let ideaRef = firebaseIdeasRef.child(ideaID);
+          let rating = this.state.ideas[ideaID].rating;
+          
+          ideaRef.update({
+            rating: ++rating
+          });
+        });
+      } else {
+        alert('Idea ' + ideaID + ' is already a favorite!');
+      }
+    }
+  } // /addFavoriteIdea
   
   render() {
     // use this.props.children.type.name to identify component being rendered
@@ -117,6 +155,9 @@ class App extends Component {
     
     // use this.props.location.query.id for url arguments
     //console.log('url args: ', this.props.location.query.id);
+    
+    // use React.cloneElement for passing props to children
+    // will break if multiple child components http://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
     
     const defaultIdeaData = {
       createdAt: 12345,
@@ -140,7 +181,8 @@ class App extends Component {
       case 'SearchPage':
         dataToPass = {
           ideas: this.state.ideas,
-          handleAddIdea: this.addIdea
+          handleAddIdea: this.addIdea,
+          handleAddFavorite: this.addFavoriteIdea
         };
         break;
       case 'IdeaPage':
@@ -153,11 +195,12 @@ class App extends Component {
         break;
       default:
         dataToPass = {};
+        break;
     }
     
     return (
       <div>
-        <Navbar username={this.state.username} />
+        <Navbar username={this.state.username} avatar={this.state.userAvatar} />
         
           {this.props.children && React.cloneElement(this.props.children, dataToPass)}
           

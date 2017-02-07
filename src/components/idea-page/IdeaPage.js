@@ -36,6 +36,8 @@ const IdeaPage = (props) =>  {
   title = title ? title : defaultIdeaData.title;
   tutorials = tutorials ? tutorials : defaultIdeaData.tutorials;
   
+  createdAt = moment.unix(createdAt).format('MMM Do YYYY');
+  
 
   return (
     <div className="container">
@@ -50,6 +52,5 @@ const IdeaPage = (props) =>  {
   );
   
 }
-
 
 export default IdeaPage;

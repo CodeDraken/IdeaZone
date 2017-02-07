@@ -4,6 +4,8 @@ import _ from 'lodash';
 import PostContainer from './PostContainer';
 import ModalIdea from './../common/ModalIdea';
 
+// TODO complete refactor
+
 // Search page / posts page
 class SearchPage extends Component {
   constructor(props) {
@@ -118,7 +120,7 @@ class SearchPage extends Component {
             </div>
           </form>
           
-          <PostContainer posts={posts} />
+          <PostContainer posts={posts} handleAddFavorite={this.props.handleAddFavorite} />
         </div>
       </div>
     )

@@ -541,6 +541,18 @@ footer {
     color: #7b7b7b;
     border-bottom: 3px solid #D7FFF1; }
 
+.userInfo {
+  display: table;
+  max-height: 50px; }
+  .userInfo .profilePic {
+    max-width: 50px;
+    max-height: 50px;
+    float: right;
+    margin: 5px; }
+  .userInfo .username {
+    display: table-cell;
+    vertical-align: middle; }
+
 .post {
   background-color: #feee7d;
   height: 200px;

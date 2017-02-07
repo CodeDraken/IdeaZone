@@ -44,3 +44,21 @@
     border-bottom: 3px solid $post--mint;
   }
 }
+
+
+.userInfo {
+  display: table;
+  max-height: 50px;
+  
+  .profilePic{
+    max-width: 50px;
+    max-height: 50px;
+    float: right;
+    margin: 5px;
+  }
+  
+  .username{
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
