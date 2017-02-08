@@ -1,15 +1,15 @@
+// OLD MODAL
+
 import React, {Component} from 'react';
 import moment from 'moment';
 
-import firebase, {firebaseRef} from './../data/firebase';
+import firebase, {firebaseRef, firebaseIdeasRef} from './../../data/firebase';
 
 // will take props to determine type of modal rendered & functions
 class Modal extends Component {
   
   // handleAddIdea = (e) => {
   //   e.preventDefault();
-  //   // the ideas object in the database
-  //   const ideasRef = firebaseRef.child('ideas');
   //   // the details to push up
   //   let ideaTitle = this.refs.ideaTitle.value;
   //   let ideaDesc = this.refs.ideaDesc.value;
@@ -21,7 +21,7 @@ class Modal extends Component {
   //   console.log('input test: ', user, ideaTitle, ideaDesc, ideaImgUrl)
     
   //   // new idea to push up
-  //   let newIdeaRef = ideasRef.push({
+  //   let newIdeaRef = firebaseIdeasRef.push({
   //     title: ideaTitle,
   //     description: ideaDesc,
   //     owner: user,

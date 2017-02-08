@@ -5,9 +5,9 @@ import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 import './css/main.css';
 
 import App from './components/App';
-import IdeaPage from './components/IdeaPage';
-import SearchPage from './components/SearchPage';
-import AboutPage from './components/AboutPage';
+import IdeaPage from './components/idea-page/IdeaPage';
+import SearchPage from './components/search-page/SearchPage';
+import AboutPage from './components/about-page/AboutPage';
 
 ReactDOM.render(
   <Router history={hashHistory}>

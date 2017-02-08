@@ -541,6 +541,18 @@ footer {
     color: #7b7b7b;
     border-bottom: 3px solid #D7FFF1; }
 
+.userInfo {
+  display: table;
+  max-height: 50px; }
+  .userInfo .profilePic {
+    max-width: 50px;
+    max-height: 50px;
+    float: right;
+    margin: 5px; }
+  .userInfo .username {
+    display: table-cell;
+    vertical-align: middle; }
+
 .post {
   background-color: #feee7d;
   height: 200px;
@@ -661,6 +673,14 @@ footer {
 .carousel-indicators .active {
   background: #428bca; }
 
+.carousel-inner {
+  min-height: 200px;
+  max-height: 200px; }
+
+.carousel__img {
+  max-height: 180px;
+  width: auto; }
+
 .react-logo {
   animation: react-logo-spin infinite 20s linear;
   height: 2em; }
@@ -670,5 +690,37 @@ footer {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+.btn-twitter {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background-color: #55acee;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.btn-twitter:hover {
+  color: #fff;
+  background-color: #2795e9;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.btn-google {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background-color: #dd4b39;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.btn-google:hover {
+  color: #fff;
+  background-color: #c23321;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.btn-github {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background-color: #444;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.btn-github:hover {
+  color: #fff;
+  background-color: #2b2b2b;
+  border-color: rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=main.css.map */

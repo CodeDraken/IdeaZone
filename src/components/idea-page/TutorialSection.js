@@ -50,14 +50,14 @@ const TutorialSection = (props) => {
   if (props.tutorials === undefined || props.tutorials.length < 1) {
     return (
       <section>
-        <h2 className="text-center">Tutorials & Links <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addModal" aria-hidden="true" title="Add an idea"></i></h2>
+        <h2 className="text-center">Tutorials & Links <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addResourceModal" aria-hidden="true" title="Add an idea"></i></h2>
         <h4 className="text-center">Looks like no one has added a tutorial so I guess you're on your own...</h4>
       </section>
     );
   } else {
     return (
       <section>
-        <h2 className="text-center">Tutorials & Links <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addModal" aria-hidden="true" title="Add an idea"></i></h2>
+        <h2 className="text-center">Tutorials & Links <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addResourceModal" aria-hidden="true" title="Add an idea"></i></h2>
         <div className="row text-center">
           <div className="col-xs-6 col-sm-4">
             <ul className="list-unstyled">

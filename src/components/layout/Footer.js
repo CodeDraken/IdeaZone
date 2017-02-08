@@ -1,6 +1,6 @@
 import React from 'react';
 
-import reactLogo from '../react-logo.svg';
+import reactLogo from './../../react-logo.svg';
 
 // basic footer on every page
 const Footer = () => {
