@@ -22,7 +22,7 @@ const ModalIdea = (props) => {
     
     if( dataIsValid() ) {
       $('#addModal').modal('hide');
-      props.handleAddIdea(ideaTitle.value, ideaDesc.value, ideaImgUrl.value, ideaTags.value);
+      props.handleAddIdea( ideaTitle.value, ideaDesc.value, ideaImgUrl.value, ideaTags.value );
     }
   }
   

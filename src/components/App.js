@@ -5,6 +5,8 @@ import moment from 'moment';
 import firebase, {firebaseRef, auth, firebaseIdeasRef, firebaseUsersRef} from './../data/firebase';
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
+import ModalIdea from './common/ModalIdea';
+import ModalResource from './common/ModalResource';
 
 // Appears on every page, other pages are passed to {props.children}
 class App extends Component {
@@ -124,6 +126,40 @@ class App extends Component {
     }
   } // /addIdea
   
+  
+  // adding examples / tutorials
+  addResource = ( ideaID, exampleTitle, exampleLink, exampleImg, tutorialTitle, tutorialLink) => {
+    if (ideaID) {
+      // only logged in users can add resources
+      if (auth.currentUser) {
+        const ideaRef = firebaseIdeasRef.child(ideaID);
+        
+        // add example
+        if(exampleTitle && exampleLink) {
+          // TODO urls need a http:// in front if not included
+          let newExampleRef = ideaRef.child('examples').push({
+            title: exampleTitle,
+            imageUrl: exampleImg,
+            url: exampleLink
+          });
+        }
+        
+        // add tutorial
+        if(tutorialTitle && tutorialLink) {
+          // TODO urls need a http:// in front if not included
+          let newTutorialRef = ideaRef.child('tutorials').push({
+            text: tutorialTitle,
+            url: tutorialLink
+          });
+        }
+        
+      } else {
+        alert('Please sign in to add examples or tutorials!');
+      }
+    }
+  } // /addResource
+  
+  
   addFavoriteIdea = (ideaID) => {
     // pass current user id to post for rendering heart
     // receive post id when clicking heart
@@ -148,6 +184,8 @@ class App extends Component {
       }
     }
   } // /addFavoriteIdea
+  
+  
   
   render() {
     // use this.props.children.type.name to identify component being rendered
@@ -181,7 +219,6 @@ class App extends Component {
       case 'SearchPage':
         dataToPass = {
           ideas: this.state.ideas,
-          handleAddIdea: this.addIdea,
           handleAddFavorite: this.addFavoriteIdea
         };
         break;
@@ -200,6 +237,8 @@ class App extends Component {
     
     return (
       <div>
+        <ModalIdea handleAddIdea={this.addIdea} />
+        <ModalResource handleAddResource={this.addResource} ideaID={this.props.location.query.id} />
         <Navbar username={this.state.username} avatar={this.state.userAvatar} />
         
           {this.props.children && React.cloneElement(this.props.children, dataToPass)}

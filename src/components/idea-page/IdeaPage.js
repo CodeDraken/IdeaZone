@@ -5,7 +5,6 @@ import moment from 'moment';
 import ProjectInfo from './ProjectInfo';
 import ExampleSlider from './ExampleSlider';
 import TutorialSection from './TutorialSection';
-import Modal from './../common/Modal';
 
 // Individual idea page view
 const IdeaPage = (props) =>  {
@@ -36,12 +35,9 @@ const IdeaPage = (props) =>  {
   title = title ? title : defaultIdeaData.title;
   tutorials = tutorials ? tutorials : defaultIdeaData.tutorials;
   
-  createdAt = moment.unix(createdAt).format('MMM Do YYYY');
-  
 
   return (
     <div className="container">
-      <Modal modalType='add-info' />
       <Link to='/'>
         <i className="fa fa-arrow-circle-left fa-3x" aria-hidden="true" title="home page"></i>
       </Link>

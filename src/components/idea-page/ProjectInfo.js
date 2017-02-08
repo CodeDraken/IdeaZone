@@ -6,8 +6,6 @@ const ProjectInfo = (props) => {
   
   let { createdAt, description, imageUrl, ownerName, rating, tags, title } = props;
   
-  console.log('info props: ', props)
-  
   // load the image or use a default if none is provided
   const hasImg = imageUrl !== undefined && imageUrl.length > 0 ? true : false;
   const projectImage = hasImg ? 

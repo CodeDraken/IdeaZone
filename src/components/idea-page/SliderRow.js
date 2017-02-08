@@ -6,8 +6,8 @@ const SliderRow = (props) => {
   const slides = props.slides.map( ( slide, i ) => {
       return (
         <div key={`${slide.title}-${i}-${(Math.random() * 1000)}`} className="col-xs-6 col-sm-3">
-          <a href={slide.url} className="thumbnail">
-          <img className="img-responsive" src={slide.imageUrl} alt={slide.title}/>
+          <a href={slide.url} target="_blank" className="thumbnail">
+          <img className="carousel__img" src={slide.imageUrl} alt={slide.title}/>
           </a>
         </div>
       )

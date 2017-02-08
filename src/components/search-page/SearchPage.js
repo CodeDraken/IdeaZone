@@ -26,7 +26,7 @@ class SearchPage extends Component {
     searchData = this.sortData(searchLinked);
     window.location.hash = '#/';
       this.setState({
-        searchData: searchData
+        searchData
       });
     }
   } // /componentDidMount
@@ -36,71 +36,66 @@ class SearchPage extends Component {
     // It will find: title -> relevant tags -> description in that order
     // Shouldn't show duplicate matches ( if something matches a title and tags for example )
     // Should display the result as a post
-    
     // variables
     let data = this.props.ideas,
-        dataFiltered = [],
-        results = [];
-    
-    // matches in title
-    // TODO setup new search
-    
-    /* OLD ///////////
-    
-    let data = this.props.data,
         searchRegex = new RegExp( search, 'ig' ),
         dataFiltered = [],
         results = [];
-    
+        
     // matches in title
-    let titleSearch = data.filter( post => {
-      return post.title.match( searchRegex );
+    let titleMatches = _.filter(data, post => {
+      const postTitle = post.title || '';
+      return postTitle.match( searchRegex );
     });
     
     // matches in tags
-    let tagSearch = data.filter( post => {
+    let tagMatches = _.filter(data, post => {
+      const postTags = post.tags || '';
       // change array to string for simple regex matching
-      let tagString = post.tags.join(' ');
+      let tagString = postTags.join(' ');
       return tagString.match( searchRegex );
     });
     
     // matches in description
-    let descriptionSearch = data.filter( post => {
-      return post.description.match( searchRegex );
+    let descMatches = _.filter(data, post => {
+      const postDesc = post.description || '';
+      return postDesc.match( searchRegex );
     });
     
     // concat the arrays into one
-    dataFiltered = titleSearch.concat(tagSearch, descriptionSearch);
-    
+    dataFiltered = titleMatches.concat(tagMatches, descMatches);
+
     // remove duplicate matches
     results = dataFiltered.filter(function (item, pos) {return dataFiltered.indexOf(item) === pos});
-
+    
     // all matches merged, and duplicates removed
     this.setState({
       search: '',
       searchData: results
     });
     
-    return results;
-    /////////// */
+    // clear input
+    this.refs.searchInput.value = '';
     
-  }
+    results.length < 1 ? alert('Nothing for that search was found!') : null;
+    
+    return results;
+  } // /sortData
+  
   
   onSearchSubmit = ( e ) => {
     e.preventDefault();
     let search = this.refs.searchInput.value;
     
     this.sortData(search);
-  }
+  } // /onSearchSubmit
+  
   
   render() {
     // if there's search data use that otherwise use the normal unsorted data
     let posts = this.state.searchData === undefined || this.state.searchData.length < 1 ? this.props.ideas : this.state.searchData;
-    // TODO move modal to app.js split into 3 components
     return (
       <div>
-        <ModalIdea handleAddIdea={this.props.handleAddIdea} />
-        
         <div className="container">
         
           <header className="text-center clearfix">
@@ -123,7 +118,7 @@ class SearchPage extends Component {
           <PostContainer posts={posts} handleAddFavorite={this.props.handleAddFavorite} />
         </div>
       </div>
-    )
+    );
   }
   
 }

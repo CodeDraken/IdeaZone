@@ -67,7 +67,7 @@ const ExampleSlider = (props) => {
 
   return (
     <section>
-      <h2 className="text-center">Examples <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addModal" aria-hidden="true" title="Add an idea"></i></h2>
+      <h2 className="text-center">Examples <i className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#addResourceModal" aria-hidden="true" title="Add an idea"></i></h2>
       {sliderHtml}
     </section>
   );

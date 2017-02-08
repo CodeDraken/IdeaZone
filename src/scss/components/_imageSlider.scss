@@ -49,3 +49,13 @@
 .carousel-indicators .active {
   background: #428bca;
 }
+
+.carousel-inner {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.carousel__img {
+  max-height: 180px;
+  width: auto;
+}
