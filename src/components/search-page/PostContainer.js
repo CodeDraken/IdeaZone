@@ -24,12 +24,13 @@ const PostContainer = (props) => {
       
       genPosts.push(
         <Post color={color} key={key} postName={value.title} postDesc={value.description} hearts={value.rating} id={key} handleAddFavorite={props.handleAddFavorite}  />
-      )
+      );
     });
   
   return (
     <div className="row">
       {genPosts}
+	posts
     </div>
   );
   

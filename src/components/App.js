@@ -210,7 +210,8 @@ class App extends Component {
       tutorials: []
     };
     
-    let componentToRender = this.props.children.type.name;
+    //let componentToRender = this.props.children.type.name;
+    let componentToRender = this.props.children.props.route.componentName;
     // object of props to pass
     let dataToPass = {};
     

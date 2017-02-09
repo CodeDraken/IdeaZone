@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "firebase": "^3.6.7",
+    "lodash": "^4.17.4",
     "moment": "^2.17.1",
     "react-scripts": "0.8.5"
   },

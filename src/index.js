@@ -12,9 +12,9 @@ import AboutPage from './components/about-page/AboutPage';
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="idea" component={IdeaPage} />
-      <Route path="about" component={AboutPage} />
-      <IndexRoute component={SearchPage} />
+      <Route path="idea" component={IdeaPage} componentName='IdeaPage' />
+      <Route path="about" component={AboutPage}  componentName='AboutPage'/>
+      <IndexRoute component={SearchPage} componentName='SearchPage' />
     </Route>
   </Router>,
   document.getElementById('root')
