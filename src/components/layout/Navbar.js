@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import firebase, {firebaseRef, githubProvider, auth} from './../../data/firebase';
+import userDefault from './../../img/user.png';
 
 
 // Navigation bar that renders on every page
@@ -52,22 +53,14 @@ const Navbar = (props) => {
               </Link>
             </li>
             <li>
-             <i className="fa fa-plus-circle fa-2x navbar__icon" aria-hidden="true" title="Add an idea" data-toggle="modal" data-target="#addModal"></i>
+             <i className="fa fa-plus-circle fa-2x navbar__icon hidden-xs" aria-hidden="true" title="Add an idea" data-toggle="modal" data-target="#addModal"></i>
             </li>
           </ul>
-          
-          
           
           <ul className="nav navbar-nav navbar-right">
             <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <a className="btn btn-twitter">
-                    <span className="fa fa-twitter"></span> | Sign in with Twitter
-                  </a>
-                  <a className="btn btn-google">
-                    <span className="fa fa-google"></span> | Sign in with Google
-                  </a>
                   <a onClick={handleSignIn} className="btn btn-github">
                     <span className="fa fa-github"></span> | Sign in with GitHub
                   </a>
@@ -79,9 +72,8 @@ const Navbar = (props) => {
           </ul>
     
           <ul className="nav navbar-nav navbar-right userInfo">
-          <p className="username">Welcome, {props.username}</p>
-              <img className="profilePic" src={props.avatar} alt=""></img>
-              
+            <p className="username">Welcome, {props.username}</p>
+            <img className="profilePic" src={props.avatar} alt=""></img>
           </ul>
     
         </div>
@@ -92,7 +84,7 @@ const Navbar = (props) => {
 
 Navbar.defaultProps = {
   username: 'Anonymous',
-  avatar: ''
+  avatar: userDefault
 };
 
 export default Navbar;

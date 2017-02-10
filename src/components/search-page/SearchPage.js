@@ -39,34 +39,50 @@ class SearchPage extends Component {
     // variables
     let data = this.props.ideas,
         searchRegex = new RegExp( search, 'ig' ),
-        dataFiltered = [],
-        results = [];
+        dataFiltered = {},
+        results = {};
         
     // matches in title
-    let titleMatches = _.filter(data, post => {
+    let titleMatches = {};
+    _.filter(data, post => {
       const postTitle = post.title || '';
-      return postTitle.match( searchRegex );
+      if (postTitle.match( searchRegex )) {
+        const postKey =  _.findKey(data, post);
+        titleMatches[postKey] = post;
+      }
     });
     
     // matches in tags
-    let tagMatches = _.filter(data, post => {
+    let tagMatches = {};
+    _.filter(data, post => {
       const postTags = post.tags || '';
       // change array to string for simple regex matching
       let tagString = postTags.join(' ');
-      return tagString.match( searchRegex );
+      
+      if (tagString.match( searchRegex )) {
+        const postKey =  _.findKey(data, post);
+        tagMatches[postKey] = post;
+      }
     });
     
     // matches in description
-    let descMatches = _.filter(data, post => {
+    let descMatches = {};
+    _.filter(data, post => {
       const postDesc = post.description || '';
-      return postDesc.match( searchRegex );
+      if (postDesc.match( searchRegex )) {
+        const postKey =  _.findKey(data, post);
+        descMatches[postKey] = post;
+      }
     });
     
+    //console.log('matches: ', titleMatches, tagMatches, descMatches);
+    
     // concat the arrays into one
-    dataFiltered = titleMatches.concat(tagMatches, descMatches);
+    // overrides, left to right
+    dataFiltered = _.assign({}, descMatches, tagMatches, titleMatches );
 
-    // remove duplicate matches
-    results = dataFiltered.filter(function (item, pos) {return dataFiltered.indexOf(item) === pos});
+    // remove duplicate matches | don't need to with objects / _.assign
+    results = dataFiltered;
     
     // all matches merged, and duplicates removed
     this.setState({
@@ -89,6 +105,7 @@ class SearchPage extends Component {
     
     this.sortData(search);
   } // /onSearchSubmit
+  
   
   
   render() {

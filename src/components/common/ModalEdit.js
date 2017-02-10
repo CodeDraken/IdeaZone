@@ -4,39 +4,29 @@ import React from 'react';
 
 /*global $*/
 
-const ModalIdea = (props) => {
+
+const ModalEdit = (props) => {
   // no refs on functional components
   let ideaTitle, ideaDesc, ideaImgUrl, ideaTags;
-  
-  const dataIsValid = () => {
-    if(ideaTitle.value.length > 0 && ideaDesc.value.length > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  
-  const onAddIdea = (e) => {
+  const onEditIdea = (e) => {
     e.preventDefault();
     
-    if( dataIsValid() ) {
-      $('#addModal').modal('hide');
-      props.handleAddIdea( ideaTitle.value, ideaDesc.value, ideaImgUrl.value, ideaTags.value );
-    }
+    $('#editModal').modal('hide');
+    props.handleEditIdea( props.ideaID, ideaTitle.value, ideaDesc.value, ideaImgUrl.value, ideaTags.value );
   }
   
   return (
-      <div className="modal fade" id="addModal" tabIndex="-1" role="dialog" aria-labelledby="addModalLabel">
+      <div className="modal fade" id="editModal" tabIndex="-1" role="dialog" aria-labelledby="editModalLabel">
         <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 className="modal-title" id="addModalLabel">Add an Idea</h4>
+            <h4 className="modal-title" id="editModalLabel">Add an Idea</h4>
           </div>
           
           <div className="modal-body">
             
-            <form onSubmit={onAddIdea}>
+            <form onSubmit={onEditIdea}>
               <div className="form-group">
                 <label htmlFor="modalFormTitle">Title</label>
                 <input ref={ el => ideaTitle = el } type="text" className="form-control" id="modalFormTitle" placeholder="Enter name of project idea" required />
@@ -58,7 +48,7 @@ const ModalIdea = (props) => {
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-            <button onClick={onAddIdea} type="button" className="btn btn-primary">Add Idea</button>
+            <button onClick={onEditIdea} type="button" className="btn btn-primary">Edit Idea</button>
           </div>
         </div>
       </div>
@@ -67,4 +57,4 @@ const ModalIdea = (props) => {
   
 }
 
-export default ModalIdea;
+export default ModalEdit;

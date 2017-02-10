@@ -30,7 +30,6 @@ const PostContainer = (props) => {
   return (
     <div className="row">
       {genPosts}
-	posts
     </div>
   );
   

@@ -25,15 +25,21 @@ const ProjectInfo = (props) => {
     });
   }
   
+  const startAddFavorite = (e) => {
+    e.preventDefault();
+    props.handleAddFavorite(props.ideaID);
+  }    
+  
   return(
      <section className="project">
       <h1 className="text-center project__title">{title}</h1>
+      <p className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#editModal" aria-hidden="true" title="Edit idea">Edit Idea</p>
 
       <div className="row">
         <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
           {projectImage}
           <div className="project__stats clearfix">
-            <i className="fa fa-heart-o fa-lg project__heart" aria-hidden="true"></i>
+            <i onClick={startAddFavorite} className="fa fa-heart-o fa-lg project__heart" aria-hidden="true"></i>
             <span className="project__favnum">&nbsp;{rating || 0}</span>
             
             {postTags}

@@ -6,6 +6,7 @@ import ProjectInfo from './ProjectInfo';
 import ExampleSlider from './ExampleSlider';
 import TutorialSection from './TutorialSection';
 
+
 // Individual idea page view
 const IdeaPage = (props) =>  {
   let {createdAt, description, examples, imageUrl, ownerName, rating, tags, title, tutorials} = props.postData;
@@ -41,7 +42,7 @@ const IdeaPage = (props) =>  {
       <Link to='/'>
         <i className="fa fa-arrow-circle-left fa-3x" aria-hidden="true" title="home page"></i>
       </Link>
-      <ProjectInfo {...{ createdAt, description, imageUrl, ownerName, rating, tags, title }} />
+      <ProjectInfo ideaID={props.postID} handleAddFavorite = {props.handleAddFavorite} {...{ createdAt, description, imageUrl, ownerName, rating, tags, title }} />
       <ExampleSlider examples={examples} />
       <TutorialSection tutorials={tutorials} />
     </div>

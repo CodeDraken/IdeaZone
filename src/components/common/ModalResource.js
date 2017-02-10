@@ -21,7 +21,6 @@ const ModalResource = (props) => {
     e.preventDefault();
     
     if( dataIsValid() ) {
-      console.log('modal sending data...');
       $('#addResourceModal').modal('hide');
       props.handleAddResource( ideaID, exampleTitle.value, exampleLink.value, exampleImg.value, tutorialTitle.value, tutorialLink.value );
     }

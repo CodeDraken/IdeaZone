@@ -6,6 +6,7 @@ import firebase, {firebaseRef, auth, firebaseIdeasRef, firebaseUsersRef} from '.
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
 import ModalIdea from './common/ModalIdea';
+import ModalEdit from './common/ModalEdit';
 import ModalResource from './common/ModalResource';
 
 // Appears on every page, other pages are passed to {props.children}
@@ -103,7 +104,8 @@ class App extends Component {
     
   } // /componentDidMount
   
-  addIdea = (ideaTitle, ideaDesc, ideaImgUrl, ideaTags) => {
+  
+  addIdea = ( ideaTitle, ideaDesc, ideaImgUrl, ideaTags ) => {
     // only logged in users can add ideas
     if (auth.currentUser) {
       // new idea to push up
@@ -125,6 +127,24 @@ class App extends Component {
       alert('Please sign in to add ideas!');
     }
   } // /addIdea
+  
+  
+  editIdea = ( ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags ) => {
+    if (auth.currentUser && this.state.ideas[ideaID].owner === auth.currentUser.uid) {
+      // new idea to push up
+      console.log('edited idea: ', ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags )
+      let updatedIdea = {
+        title: ideaTitle,
+        description: ideaDesc,
+        tags: ideaTags.split(', '),
+        imageUrl: ideaImgUrl
+      }
+      
+      let updatedIdeaRef = firebaseIdeasRef.child(ideaID).update(updatedIdea);
+    } else {
+      alert('Only the owner can edit this idea!');
+    }
+  } // /edit idea
   
   
   // adding examples / tutorials
@@ -158,6 +178,11 @@ class App extends Component {
       }
     }
   } // /addResource
+  
+  
+  removeResource = () => {
+    console.log('removing: ');
+  } // /removeResource
   
   
   addFavoriteIdea = (ideaID) => {
@@ -210,7 +235,7 @@ class App extends Component {
       tutorials: []
     };
     
-    //let componentToRender = this.props.children.type.name;
+    //let componentToRender = this.props.children...;
     let componentToRender = this.props.children.props.route.componentName;
     // object of props to pass
     let dataToPass = {};
@@ -228,7 +253,9 @@ class App extends Component {
         let postData = _.at(this.state.ideas, postID);
         dataToPass = {
           postData: postData[0] || defaultIdeaData,
-          defaultIdeaData
+          handleAddFavorite: this.addFavoriteIdea,
+          defaultIdeaData,
+          postID
         };
         break;
       default:
@@ -239,6 +266,7 @@ class App extends Component {
     return (
       <div>
         <ModalIdea handleAddIdea={this.addIdea} />
+        <ModalEdit handleEditIdea={this.editIdea} ideaID={this.props.location.query.id} />
         <ModalResource handleAddResource={this.addResource} ideaID={this.props.location.query.id} />
         <Navbar username={this.state.username} avatar={this.state.userAvatar} />
         
