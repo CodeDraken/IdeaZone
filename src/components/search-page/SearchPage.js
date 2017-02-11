@@ -132,7 +132,7 @@ class SearchPage extends Component {
             </div>
           </form>
           
-          <PostContainer posts={posts} handleAddFavorite={this.props.handleAddFavorite} />
+          <PostContainer posts={posts} userFavorites={this.props.userFavorites} handleAddFavorite={this.props.handleAddFavorite} />
         </div>
       </div>
     );

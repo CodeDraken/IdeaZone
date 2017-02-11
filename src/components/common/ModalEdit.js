@@ -33,7 +33,7 @@ const ModalEdit = (props) => {
               </div>
               <div className="form-group">
                 <label htmlFor="modalFormDesc">Description</label>
-                <input ref={ el => ideaDesc = el } type="text" className="form-control" id="modalFormDesc" placeholder="Description of the project" required />
+                <textarea ref={ el => ideaDesc = el } type="text" className="form-control" id="modalFormDesc" placeholder="Description of the project" required />
               </div>
               <div className="form-group">
                 <label htmlFor="modalFormImg">Link / Url to an image to be used for the idea page</label>

@@ -28,12 +28,16 @@ const ProjectInfo = (props) => {
   const startAddFavorite = (e) => {
     e.preventDefault();
     props.handleAddFavorite(props.ideaID);
-  }    
+  }
   
-  return(
+  return (
      <section className="project">
-      <h1 className="text-center project__title">{title}</h1>
-      <p className="fa fa-plus-circle float-right" data-toggle="modal" data-target="#editModal" aria-hidden="true" title="Edit idea">Edit Idea</p>
+       <header className="clearfix">
+          <h1 className="text-center project__title">{title}</h1>
+          <button className="btn btn-default float-right" data-toggle="modal" data-target="#editModal" aria-hidden="true" title="Edit idea">
+            Edit Idea&nbsp;<i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </button>
+        </header>
 
       <div className="row">
         <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">

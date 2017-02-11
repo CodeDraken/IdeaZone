@@ -20,6 +20,17 @@ const Navbar = (props) => {
       console.log('signed out');
     });
   }
+  
+  // use ternary operator for cleaner if / else
+  let authButton = props.username === 'Anonymous' ? 
+    <li className="pointer">
+      <a onClick={handleSignIn}>
+        <span className="fa fa-github"></span> | Sign in with GitHub
+      </a>
+    </li> :
+    <li className="pointer sign-out">
+      <a onClick={handleSignOut}>Sign Out</a>
+    </li>;
 
   return (
      <nav className="navbar navbar-default">
@@ -57,19 +68,9 @@ const Navbar = (props) => {
             </li>
           </ul>
           
-          <ul className="nav navbar-nav navbar-right">
-            <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span className="caret"></span></a>
-                <ul className="dropdown-menu">
-                  <a onClick={handleSignIn} className="btn btn-github">
-                    <span className="fa fa-github"></span> | Sign in with GitHub
-                  </a>
-                   <li role="separator" className="divider"></li>
-                    <button onClick={handleSignOut} type="button" className="btn btn-danger">Sign Out</button>
-                </ul>
-            </li>
-           
-          </ul>
+          <div className="nav navbar-nav navbar-right">
+            {authButton}
+          </div>
     
           <ul className="nav navbar-nav navbar-right userInfo">
             <p className="username">Welcome, {props.username}</p>
@@ -88,3 +89,19 @@ Navbar.defaultProps = {
 };
 
 export default Navbar;
+
+
+// <ul className="nav navbar-nav navbar-right">
+//   {authButton}
+//   <li className="dropdown">
+//       <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in <span className="caret"></span></a>
+//       <ul className="dropdown-menu">
+//         <a onClick={handleSignIn} className="btn btn-github">
+//           <span className="fa fa-github"></span> | Sign in with GitHub
+//         </a>
+//         <li role="separator" className="divider"></li>
+//           <button onClick={handleSignOut} type="button" className="btn btn-danger">Sign Out</button>
+//       </ul>
+//   </li>
+ 
+// </ul>

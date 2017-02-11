@@ -68,7 +68,8 @@ class App extends Component {
         // logged out
         this.setState({
           userID: undefined,
-          username: 'Anonymous'
+          username: 'Anonymous',
+          userAvatar: undefined
         });
       }
     }); // /auth change
@@ -245,7 +246,8 @@ class App extends Component {
       case 'SearchPage':
         dataToPass = {
           ideas: this.state.ideas,
-          handleAddFavorite: this.addFavoriteIdea
+          handleAddFavorite: this.addFavoriteIdea,
+          userFavorites: this.state.userFavorites
         };
         break;
       case 'IdeaPage':
