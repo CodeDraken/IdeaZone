@@ -33,8 +33,7 @@
     font-size: 1em;
     transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
     @include on-event() {
-      color: lighten($danger, 15%);
-      border-bottom: 3px solid lighten($danger, 35%);
+      border-bottom: 3px solid $danger;
       a {
         border-bottom: none;
       }
@@ -76,5 +75,4 @@
     display: table-cell;
     vertical-align: middle;
   }
-}
 }
