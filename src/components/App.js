@@ -18,7 +18,7 @@ class App extends Component {
       username: 'Anonymous',
       userAvatar: undefined,
       ideas: undefined,
-      userFavorites: undefined,
+      userFavorites: [],
       currentUserRef: undefined
     };
   }
@@ -133,7 +133,6 @@ class App extends Component {
   editIdea = ( ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags ) => {
     if (auth.currentUser && this.state.ideas[ideaID].owner === auth.currentUser.uid) {
       // new idea to push up
-      console.log('edited idea: ', ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags )
       let updatedIdea = {
         title: ideaTitle,
         description: ideaDesc,
@@ -252,12 +251,17 @@ class App extends Component {
         break;
       case 'IdeaPage':
         let postID = this.props.location.query.id;
-        let postData = _.at(this.state.ideas, postID);
+        let postData = _.at(this.state.ideas, postID)[0] || defaultIdeaData;
+        let isOwner = auth.currentUser && postData.owner === auth.currentUser.uid;
+        let isFavorite = this.state.userFavorites.findIndex( (val) => val === postID ) >= 0 ? true : false;
+        
         dataToPass = {
-          postData: postData[0] || defaultIdeaData,
+          postData: postData,
           handleAddFavorite: this.addFavoriteIdea,
           defaultIdeaData,
-          postID
+          postID,
+          isOwner,
+          isFavorite
         };
         break;
       default:
@@ -268,7 +272,12 @@ class App extends Component {
     return (
       <div>
         <ModalIdea handleAddIdea={this.addIdea} />
-        <ModalEdit handleEditIdea={this.editIdea} ideaID={this.props.location.query.id} />
+        
+        {
+        _.at(this.state.ideas, this.props.location.query.id)[0] !== undefined ?
+        <ModalEdit handleEditIdea={this.editIdea} ideaID={this.props.location.query.id} ideaData={_.at(this.state.ideas, this.props.location.query.id)[0]} /> : null
+        }
+        
         <ModalResource handleAddResource={this.addResource} ideaID={this.props.location.query.id} />
         <Navbar username={this.state.username} avatar={this.state.userAvatar} />
         
@@ -289,5 +298,15 @@ export default App;
 {this.props.children && React.cloneElement(this.props.children, {
   onRemoveTaco: this.handleRemoveTaco
 })}
+
+*/
+
+
+/* NOTES 
+STATE DATA
+
+object {
+  /IdeaZone/Design/idz-state-data.png
+}
 
 */

@@ -42,7 +42,7 @@ const IdeaPage = (props) =>  {
       <Link to='/'>
         <i className="fa fa-arrow-circle-left fa-3x" aria-hidden="true" title="home page"></i>
       </Link>
-      <ProjectInfo ideaID={props.postID} handleAddFavorite = {props.handleAddFavorite} {...{ createdAt, description, imageUrl, ownerName, rating, tags, title }} />
+      <ProjectInfo isFavorite={props.isFavorite} isOwner={props.isOwner} ideaID={props.postID} handleAddFavorite = {props.handleAddFavorite} {...{ createdAt, description, imageUrl, ownerName, rating, tags, title }} />
       <ExampleSlider examples={examples} />
       <TutorialSection tutorials={tutorials} />
     </div>

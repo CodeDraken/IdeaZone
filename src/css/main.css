@@ -646,6 +646,16 @@ footer {
     vertical-align: middle; }
 .project .project__stats {
   margin: 1em 0; }
+.project .project__heart {
+  color: #ef5285;
+  font-weight: bold; }
+  .project .project__heart:hover, .project .project__heart:active, .project .project__heart:focus {
+    color: #eb2364; }
+  .project .project__heart--favorite {
+    color: #ef5285;
+    font-weight: bold; }
+    .project .project__heart--favorite:hover, .project .project__heart--favorite:active, .project .project__heart--favorite:focus {
+      color: #f598b6; }
 .project .project__favnum {
   color: #6d9d88;
   cursor: default; }

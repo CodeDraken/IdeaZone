@@ -30,20 +30,27 @@ const ProjectInfo = (props) => {
     props.handleAddFavorite(props.ideaID);
   }
   
+  let heartCSS = props.isFavorite ? "fa fa-heart fa-lg project__heart--favorite" : "fa fa-heart-o fa-lg project__heart";
+  
   return (
      <section className="project">
        <header className="clearfix">
           <h1 className="text-center project__title">{title}</h1>
-          <button className="btn btn-default float-right" data-toggle="modal" data-target="#editModal" aria-hidden="true" title="Edit idea">
+          
+          {
+            props.isOwner ? <button className="btn btn-default float-right" data-toggle="modal" data-target="#editModal" aria-hidden="true" title="Edit idea">
             Edit Idea&nbsp;<i className="fa fa-pencil-square-o" aria-hidden="true"></i>
-          </button>
+          </button> : ''
+          }
+          
+          
         </header>
 
       <div className="row">
         <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
           {projectImage}
           <div className="project__stats clearfix">
-            <i onClick={startAddFavorite} className="fa fa-heart-o fa-lg project__heart" aria-hidden="true"></i>
+            <i onClick={startAddFavorite} className={heartCSS} aria-hidden="true"></i>
             <span className="project__favnum">&nbsp;{rating || 0}</span>
             
             {postTags}

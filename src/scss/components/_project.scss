@@ -23,6 +23,22 @@
   .project__stats {
     margin: 1em 0;
   }
+  
+  .project__heart {
+    color: #ef5285;
+    font-weight: bold;
+    @include on-event() {
+      color: darken(#ef5285, 10%);
+    }
+    &--favorite {
+      color: #ef5285;
+      font-weight: bold;
+      @include on-event() {
+        color: lighten(#ef5285, 15%);
+      }
+    }
+  }
+  
   .project__favnum {
     color: $post__favnum;
     cursor: default;
