@@ -495,6 +495,9 @@ textarea {
   display: block;
   margin: 0 auto; }
 
+.circle {
+  border-radius: 50%; }
+
 .pointer {
   cursor: pointer; }
 
@@ -769,5 +772,49 @@ footer {
   background-color:#c23321;
   border-color:rgba(0,0,0,0.2);
 }*/
+.profile__header h1 {
+  margin: 0.5em 0; }
+.profile__header .profile__progress {
+  background-color: #d8d8d8;
+  margin: 0 auto;
+  width: 90%; }
+  .profile__header .profile__progress .progress__text {
+    color: #fff;
+    left: 0;
+    right: 0;
+    margin: 0;
+    position: absolute; }
+  .profile__header .profile__progress .progress-bar {
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-name: level-up;
+    animation-timing-function: linear; }
+
+@keyframes level-up {
+  0% {
+    background-color: #ffcccc;
+    width: 0%; }
+  14% {
+    background-color: #ffedcc;
+    width: 14%; }
+  28% {
+    background-color: #ffffcc;
+    width: 28%; }
+  42% {
+    background-color: #4dff4d;
+    width: 42%; }
+  56% {
+    background-color: #ccccff;
+    width: 56%; }
+  70% {
+    background-color: #b54fff;
+    width: 70%; }
+  100% {
+    background-color: #fadcfa;
+    width: 100%; } }
+.profile__desc {
+  background-color: #f6f6f6;
+  padding: 1.5em 0;
+  margin: 0 0 1em 0; }
 
 /*# sourceMappingURL=main.css.map */

@@ -21,7 +21,8 @@
 'components/imageSlider',
 'components/reactlogo',
 'components/login';
+
 // 6. Page-specific styles
-@import 'pages/about';
+@import 'pages/about', 'pages/profile';
 // 7. Themes
 @import 'themes/default';
