@@ -4,7 +4,7 @@
 'abstracts/functions',
 'abstracts/mixins';
 // 2. Vendors
-@import 'vendor/normalize';
+@import 'vendor/normalize', 'vendor/bs-overrides';
 // 3. Base stuff
 @import 'base/base',
 'base/fonts',

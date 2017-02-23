@@ -1,4 +1,27 @@
-.profile {}
+.profile {
+  .nav-tabs {
+    border: none;
+  }
+  .nav-tabs > li {
+      display:inline-block;
+      float:none;
+      margin: 0 5%;
+      width: 40%;
+      zoom:1;
+      
+      &.active {
+        border-bottom: 5px solid $post--mint;
+        a {
+          color: darken($downy, 25%);
+          font-weight: bold;
+        }
+      }
+  }
+  
+  .nav-tabs {
+      text-align: center;
+  }
+}
 
 .profile__header {
   h1 {
@@ -6,6 +29,10 @@
   }
   .profile__progress {
     background-color: #d0d0d0;
+    border-width:1px;  
+    border-style:solid;
+    border-radius:5px;
+    border-color:#c0d4e8;
     margin: 0 auto;
     width: 90%;
     
@@ -22,7 +49,7 @@
       animation-duration: 10s;
       animation-name: level-up;
       animation-timing-function: linear;
-      //animation-timing-function: ease-in-out;
+      width: 3%;
     }
   }
 }
@@ -30,46 +57,39 @@
 @keyframes level-up {
   0% {
     background-color: lighten(red, 40%);
-    width: 0%;
+    //width: 0%;
   }
   14% {
     background-color: lighten(orange, 40%);
-    width: 14%;
+    //width: 14%;
   }
   28% {
     background-color: lighten(yellow, 40%);
-    width: 28%;
+    //width: 28%;
   }
   42% {
     background-color: lighten(green, 40%);
-    width: 42%;
+    //width: 42%;
   }
   56% {
     background-color: lighten(blue, 40%);
-    width: 56%;
+    //width: 56%;
   }
   70% {
     background-color: lighten(indigo, 40%);
-    width: 70%;
+    //width: 70%;
   }
   84% {
     background-color: lighten(violet, 15%);
-    width: 84%;
+    //width: 84%;
   }
   100% {
     background-color: lighten(red, 40%);
-    width: 100%;
+    //width: 100%;
   }
 
 }
 
-  // 50% {
-  //   background-color: purple;
-  // }
-  // 100% {
-  //   background-color: blue;
-  //   width: 100%;
-  // }
 
 .profile__level {}
 
@@ -77,18 +97,6 @@
   background-color: #f6f6f6;
   padding: 1.5em 0;
   margin: 0 0 1em 0;
-}
-
-.profile__image {
-  // min-height: 150px;
-  //   min-width: 150px;
-  //   max-width: 200px;
-  //   max-height: 200px;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  //   text-align: center;
-  //   display: table-cell;
-  //   vertical-align: middle 
 }
 
 .profile__bio {
