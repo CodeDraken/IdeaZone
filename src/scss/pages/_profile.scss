@@ -5,7 +5,7 @@
     margin: 0.5em 0;
   }
   .profile__progress {
-    background-color: #d8d8d8;
+    background-color: #d0d0d0;
     margin: 0 auto;
     width: 90%;
     
@@ -52,8 +52,12 @@
     background-color: lighten(indigo, 40%);
     width: 70%;
   }
+  84% {
+    background-color: lighten(violet, 15%);
+    width: 84%;
+  }
   100% {
-    background-color: lighten(violet, 20%);
+    background-color: lighten(red, 40%);
     width: 100%;
   }
 
@@ -94,4 +98,59 @@
 
 .profile__ideas {}
 
-.profile__favorites {}
+.profile__favorites__post {
+  border-style: solid;
+  border-radius:5px;
+  height: 200px;
+  padding: 1em;
+  margin-top: 1em;
+  overflow: hidden;
+   .post__title {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .post__desc {
+    height: 80px;
+    overflow: hidden;
+  }
+
+
+}
+
+.profile__heart {
+  color: #ef5285;
+  font-size:30px;
+  font-weight: bold;
+  @include on-event() {
+    color: darken(#ef5285, 10%);
+  }
+}
+
+.profilePost--green {
+  border-color: $post--green;
+}
+
+.profilePost--purple {
+  border-color: $post--purple;
+}
+
+.profilePost--blue {
+  border-color: $post--blue;
+}
+
+.profilePost--mint {
+  border-color: $post--mint;
+}
+
+.profilePost--pink {
+  border-color: $post--pink;
+}
+
+.profilePost--grey {
+  border-color: $post--grey;
+}
+
+.profilePost--orange {
+  border-color: $post--orange;
+}
+

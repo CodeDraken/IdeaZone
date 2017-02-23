@@ -580,32 +580,56 @@ footer {
   margin-top: 1em;
   overflow: hidden; }
   .post .post__title {
-    color: #333;
     white-space: nowrap;
     overflow: hidden; }
   .post .post__desc {
-    color: #444;
     height: 80px;
     overflow: hidden; }
-  .post .post__heart {
+
+.post--card, .post--card--img {
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  margin: 0 0 2em 0;
+  padding: 1em; }
+  .post--card .post__title, .post--card--img .post__title {
+    margin: 1em 0 0 0; }
+
+.post__title {
+  color: #333; }
+
+.post__author {
+  display: block;
+  margin-bottom: 1em; }
+
+.post__desc {
+  color: #444; }
+
+.post__heart {
+  color: #ef5285;
+  font-weight: bold; }
+  .post__heart:hover, .post__heart:active, .post__heart:focus {
+    color: #eb2364; }
+  .post__heart--favorite {
     color: #ef5285;
     font-weight: bold; }
-    .post .post__heart:hover, .post .post__heart:active, .post .post__heart:focus {
-      color: #eb2364; }
-    .post .post__heart--favorite {
-      color: #ef5285;
-      font-weight: bold; }
-      .post .post__heart--favorite:hover, .post .post__heart--favorite:active, .post .post__heart--favorite:focus {
-        color: #f598b6; }
-  .post .post__link {
-    color: #519D9E;
-    text-align: right; }
-    .post .post__link:hover {
-      text-decoration: none;
-      color: #6eb4b4; }
-  .post .post__favnum {
-    color: #6d9d88;
-    cursor: default; }
+    .post__heart--favorite:hover, .post__heart--favorite:active, .post__heart--favorite:focus {
+      color: #f598b6; }
+
+.post__link {
+  color: #519D9E;
+  text-align: right; }
+  .post__link:hover {
+    text-decoration: none;
+    color: #6eb4b4; }
+
+.post__favnum {
+  color: #6d9d88;
+  cursor: default; }
+
+.post__img {
+  display: block;
+  max-height: 240px;
+  margin: 0 auto;
+  width: auto; }
 
 .post--green {
   background-color: #cff09e; }
@@ -775,7 +799,7 @@ footer {
 .profile__header h1 {
   margin: 0.5em 0; }
 .profile__header .profile__progress {
-  background-color: #d8d8d8;
+  background-color: #d0d0d0;
   margin: 0 auto;
   width: 90%; }
   .profile__header .profile__progress .progress__text {
@@ -809,12 +833,57 @@ footer {
   70% {
     background-color: #b54fff;
     width: 70%; }
+  84% {
+    background-color: #f7c5f7;
+    width: 84%; }
   100% {
-    background-color: #fadcfa;
+    background-color: #ffcccc;
     width: 100%; } }
 .profile__desc {
   background-color: #f6f6f6;
   padding: 1.5em 0;
   margin: 0 0 1em 0; }
+
+.profile__favorites__post {
+  border-style: solid;
+  border-radius: 5px;
+  height: 200px;
+  padding: 1em;
+  margin-top: 1em;
+  overflow: hidden; }
+  .profile__favorites__post .post__title {
+    white-space: nowrap;
+    overflow: hidden; }
+  .profile__favorites__post .post__desc {
+    height: 80px;
+    overflow: hidden; }
+
+.profile__heart {
+  color: #ef5285;
+  font-size: 30px;
+  font-weight: bold; }
+  .profile__heart:hover, .profile__heart:active, .profile__heart:focus {
+    color: #eb2364; }
+
+.profilePost--green {
+  border-color: #cff09e; }
+
+.profilePost--purple {
+  border-color: #D1B6E1; }
+
+.profilePost--blue {
+  border-color: #e1eef6; }
+
+.profilePost--mint {
+  border-color: #D7FFF1; }
+
+.profilePost--pink {
+  border-color: #FADAD8; }
+
+.profilePost--grey {
+  border-color: #e4e7ec; }
+
+.profilePost--orange {
+  border-color: #FDD692; }
 
 /*# sourceMappingURL=main.css.map */

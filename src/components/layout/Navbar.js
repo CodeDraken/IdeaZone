@@ -54,8 +54,8 @@ const Navbar = (props) => {
               </IndexLink>
             </li>
             <li>
-              <Link to="/idea" activeClassName="active">
-              My Favorite Projects
+              <Link to="/profile" activeClassName="active">
+              My Profile
               </Link>
             </li>
             <li>

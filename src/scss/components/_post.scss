@@ -5,43 +5,75 @@
   padding: 1em;
   margin-top: 1em;
   overflow: hidden;
+  
   .post__title {
-    // trim in js at ~20 chars
-    color: #333;
     white-space: nowrap;
     overflow: hidden;
   }
   .post__desc {
-    color: #444;
     height: 80px;
     overflow: hidden;
   }
-  .post__heart {
+} // sticky notes
+
+.post--card, .post--card--img {
+  border: 1px solid rgba(0,0,0,.09);
+  margin: 0 0 2em 0;
+  padding: 1em;
+  
+  .post__title {
+    margin: 1em 0 0 0;
+  }
+}
+
+// general posts
+.post__title {
+  color: #333;
+}
+
+.post__author {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.post__desc {
+  color: #444;
+}
+
+.post__heart {
+  color: #ef5285;
+  font-weight: bold;
+  @include on-event() {
+    color: darken(#ef5285, 10%);
+  }
+  &--favorite {
     color: #ef5285;
     font-weight: bold;
     @include on-event() {
-      color: darken(#ef5285, 10%);
-    }
-    &--favorite {
-      color: #ef5285;
-      font-weight: bold;
-      @include on-event() {
-        color: lighten(#ef5285, 15%);
-      }
+      color: lighten(#ef5285, 15%);
     }
   }
-  .post__link {
-    color: #519D9E;
-    text-align: right;
-    &:hover {
-      text-decoration: none;
-      color: lighten(#519D9E, 10%);
-    }
+}
+
+.post__link {
+  color: #519D9E;
+  text-align: right;
+  &:hover {
+    text-decoration: none;
+    color: lighten(#519D9E, 10%);
   }
-  .post__favnum {
-    color: $post__favnum;
-    cursor: default;
-  }
+}
+
+.post__favnum {
+  color: $post__favnum;
+  cursor: default;
+}
+
+.post__img {
+  display: block;
+  max-height: 240px;
+  margin: 0 auto;
+  width: auto;
 }
 
 .post--green {
