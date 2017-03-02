@@ -345,4 +345,28 @@ object {
   /IdeaZone/Design/idz-state-data.png
 }
 
+  // Profile Page
+  // componentWillReceiveProps(nextProps) {
+  //     let {
+  //       userFavorites
+  //     } = this.props;
+
+  //     if (userFavorites.length > 0 && this.props !== nextProps) {
+  //       for (var i = 0; i < userFavorites.length; i++) {
+  //         this.loadFavorite(userFavorites[i]);
+  //       }
+  //     }
+  //   } // /componentWillReceiveProps
+
+  // loadFavorite = (favoriteID) => {
+  //     firebaseIdeasRef.child(favoriteID).once('value').then(snapshot => {
+  //       this.setState({
+  //         userFavorites: {
+  //           ...this.state.userFavorites,
+  //         [favoriteID]: snapshot.val()
+  //         }
+  //       })
+  //     });
+  //   } // /loadFavorite
+
 */
