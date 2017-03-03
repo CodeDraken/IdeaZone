@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Router, IndexRoute, hashHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
+
+import reducers from './reducers';
+import routes from './routes';
 
 import './css/main.css';
 
-import App from './components/App';
-import IdeaPage from './components/idea-page/IdeaPage';
-import SearchPage from './components/search-page/SearchPage';
-import AboutPage from './components/about-page/AboutPage';
-import ProfilePage from './components/profile-page/ProfilePage';
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+
+// login / load ideas etc
+firebase.auth().onAuthStateChanged((user) => {});
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <Route path="idea" component={IdeaPage} componentName='IdeaPage' />
-      <Route path="profile" component={ProfilePage} componentName='ProfilePage' />
-      <Route path="about" component={AboutPage}  componentName='AboutPage'/>
-      <IndexRoute component={SearchPage} componentName='SearchPage' />
-    </Route>
-  </Router>,
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <Router history={hashHistory} routes={routes} />
+  </Provider>,
   document.getElementById('root')
 );

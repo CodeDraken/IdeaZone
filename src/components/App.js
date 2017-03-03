@@ -1,18 +1,7 @@
-import React, {
-  Component
-}
-from 'react';
+import React, { Component } from 'react';
 
 import _ from 'lodash';
 import moment from 'moment';
-
-import firebase, {
-  firebaseRef,
-  auth,
-  firebaseIdeasRef,
-  firebaseUsersRef
-}
-from './../data/firebase';
 
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
@@ -204,7 +193,6 @@ class App extends Component {
       }
     } // /addResource
 
-
   removeResource = () => {
       console.log('removing: ');
     } // /removeResource
@@ -328,7 +316,6 @@ class App extends Component {
 }
 
 export default App;
-
 
 
 /*
