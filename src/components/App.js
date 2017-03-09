@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import _ from 'lodash';
 import moment from 'moment';
+
+import firebase, { firebaseRef, auth, firebaseIdeasRef, firebaseUsersRef } from './../data/firebase';
+import * as actions from '../actions';
 
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
@@ -9,117 +12,22 @@ import ModalIdea from './common/ModalIdea';
 import ModalEdit from './common/ModalEdit';
 import ModalResource from './common/ModalResource';
 
+// TODO REDUX
+// editIdea, adding resources, addFavorites, pass data through
+
 // Appears on every page, other pages are passed to {props.children}
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userID: undefined,
-      username: 'Anonymous',
-      userAvatar: undefined,
-      ideas: {},
-      userFavorites: {},
-      currentUserRef: undefined
-    };
-  }
-
-  componentDidUpdate() {
-      // console.log(auth.currentUser.uid, auth.currentUser.displayName);
-      //console.log('new state: ', this.state);
-    } // /componentDidUpdate
+  componentDidUpdate() {} // /componentDidUpdate
 
   componentDidMount() {
-
-      // authentication
-      auth.onAuthStateChanged(user => {
-        if (user) {
-          // if someone is logged in
-          this.setState({
-            userID: user.uid,
-            username: auth.currentUser.displayName,
-            userAvatar: user.photoURL
-          });
-
-          // check if current user exists in users db
-          firebaseUsersRef.once('value').then(snapshot => {
-            const usersData = snapshot.val();
-            // current logged in user is not in the users database
-            if (!(_.findKey(usersData, {
-                'id': auth.currentUser.uid
-              }))) {
-              // new user to add
-              firebaseUsersRef.push({
-                id: auth.currentUser.uid,
-                favorites: []
-              });
-              // add it to our current data
-              this.setState({
-                userFavorites: {}
-              });
-            }
-            else {
-              // user is in database load their favorites
-              this.setState({
-                userFavorites: usersData[_.findKey(usersData, {
-                  'id': auth.currentUser.uid
-                })].favorites || [],
-                currentUserRef: _.findKey(usersData, {
-                  'id': auth.currentUser.uid
-                })
-              });
-              watchCurrentUser();
-            }
-          }); // /user.once
-
-        }
-        else {
-          // logged out
-          this.setState({
-            userID: undefined,
-            username: 'Anonymous',
-            userAvatar: undefined
-          });
-        }
-      }); // /auth change
-
-
-      // on currentUserData change
-      const watchCurrentUser = () => {
-          firebaseUsersRef.child(this.state.currentUserRef).on('value', snapshot => {
-            //console.log('user change: ', snapshot.val());
-            this.setState({
-              userFavorites: snapshot.val().favorites
-            });
-          });
-        } // /currentUserData change
-
-
-      // ideas data change
-      firebaseIdeasRef.on('value', snapshot => {
-        // ideas is an object, keys are ids
-        const ideas = snapshot.val();
-        let parsedIdeas = {...ideas
-        };
-
-        // convert objects to arrays
-        _.forIn(parsedIdeas, (value, key) => {
-          parsedIdeas[key].examples = _.toArray(parsedIdeas[key].examples);
-          parsedIdeas[key].tutorials = _.toArray(parsedIdeas[key].tutorials);
-          parsedIdeas[key].tags = _.toArray(parsedIdeas[key].tags);
-        });
-
-        this.setState({
-          ideas: parsedIdeas
-        });
-      }); // /ideas data change
-
+      this.props.fetchIdeas();
 
     } // /componentDidMount
 
 
   addIdea = (ideaTitle, ideaDesc, ideaImgUrl, ideaTags) => {
       // only logged in users can add ideas
-      if (auth.currentUser) {
+      if (this.props.user.userID) {
         // new idea to push up
         let newIdea = {
           title: ideaTitle,
@@ -134,7 +42,8 @@ class App extends Component {
           examples: null
         }
 
-        let newIdeaRef = firebaseIdeasRef.push(newIdea);
+        // let newIdeaRef = firebaseIdeasRef.push(newIdea);
+        this.props.addIdea(newIdea)
       }
       else {
         alert('Please sign in to add ideas!');
@@ -143,7 +52,7 @@ class App extends Component {
 
 
   editIdea = (ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags) => {
-      if (auth.currentUser && this.state.ideas[ideaID].owner === auth.currentUser.uid) {
+      if (auth.currentUser && this.props.ideas[ideaID].owner === auth.currentUser.uid) {
         // new idea to push up
         let updatedIdea = {
           title: ideaTitle,
@@ -203,15 +112,15 @@ class App extends Component {
       // receive post id when clicking heart
       if (auth.currentUser) {
         // test if idea id is already a favorite -1 if not a favorite else index
-        let favoriteID = _.findKey(this.state.userFavorites, (val) => {
+        let favoriteID = _.findKey(this.props.user.favorites, (val) => {
           return val === ideaID;
         });
 
         // not a favorite so add it
         if (!favoriteID) {
-          let newFavoriteRef = firebaseUsersRef.child(this.state.currentUserRef).child('favorites').push(ideaID).then(() => {
+          let newFavoriteRef = firebaseUsersRef.child(this.props.user.userID).child('favorites').push(ideaID).then(() => {
             let ideaRef = firebaseIdeasRef.child(ideaID);
-            let rating = this.state.ideas[ideaID].rating;
+            let rating = this.props.ideas[ideaID].rating;
 
             ideaRef.update({
               rating: ++rating
@@ -220,9 +129,9 @@ class App extends Component {
         }
         else {
           // unfavorite idea
-          firebaseUsersRef.child(this.state.currentUserRef).child('favorites').child(favoriteID).remove(() => {
+          firebaseUsersRef.child(this.props.user.userID).child('favorites').child(favoriteID).remove(() => {
             let ideaRef = firebaseIdeasRef.child(ideaID);
-            let rating = this.state.ideas[ideaID].rating;
+            let rating = this.props.ideas[ideaID].rating;
 
             ideaRef.update({
               rating: --rating
@@ -263,18 +172,18 @@ class App extends Component {
     let dataToPass = {};
 
     let postID = this.props.location.query.id;
-    let isFavorite = _.findKey(this.state.userFavorites, (val) => val === postID) ? true : false;
+    let isFavorite = _.findKey(this.props.user.favorites, (val) => val === postID) ? true : false;
     // props to pass in depending on component type
     switch (componentToRender) {
       case 'SearchPage':
         dataToPass = {
-          ideas: this.state.ideas,
+          ideas: this.props.ideas,
           handleAddFavorite: this.addFavoriteIdea,
-          userFavorites: this.state.userFavorites
+          userFavorites: this.props.user.favorites
         };
         break;
       case 'IdeaPage':
-        let postData = _.at(this.state.ideas, postID)[0] || defaultIdeaData;
+        let postData = _.at(this.props.ideas, postID)[0] || defaultIdeaData;
         let isOwner = auth.currentUser && postData.owner === auth.currentUser.uid;
 
         dataToPass = {
@@ -296,16 +205,16 @@ class App extends Component {
         <ModalIdea handleAddIdea={this.addIdea} />
         
         {
-        _.at(this.state.ideas, this.props.location.query.id)[0] !== undefined &&
+        _.at(this.props.ideas, this.props.location.query.id)[0] !== undefined &&
           <div>
-            <ModalEdit handleEditIdea={this.editIdea} ideaID={this.props.location.query.id} ideaData={_.at(this.state.ideas, this.props.location.query.id)[0]} />
+            <ModalEdit handleEditIdea={this.editIdea} ideaID={this.props.location.query.id} ideaData={_.at(this.props.ideas, this.props.location.query.id)[0]} />
             <ModalResource handleAddResource={this.addResource} ideaID={this.props.location.query.id} />
           </div>
         }
         
         
         
-        <Navbar username={this.state.username} avatar={this.state.userAvatar} />
+        <Navbar username={this.props.user.username} avatar={this.props.user.userAvatar} />
         
           {this.props.children && React.cloneElement(this.props.children, dataToPass)}
           
@@ -315,7 +224,14 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { 
+    ideas: state.ideas,
+    user: state.user
+  };
+}
+
+export default connect(mapStateToProps, actions)(App);
 
 
 /*

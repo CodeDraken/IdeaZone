@@ -1,11 +1,19 @@
-import { FETCH_IDEAS, ADD_IDEA, REMOVE_IDEA, EDIT_IDEA, ADD_RESOURCE, REMOVE_RESOURCE, EDIT_RESOURCE, ADD_FAVORITE_IDEA } from '../actions/index';
+import {
+  FETCH_IDEAS,
+  ADD_IDEA,
+  REMOVE_IDEA,
+  EDIT_IDEA,
+  ADD_RESOURCE,
+  REMOVE_RESOURCE,
+  EDIT_RESOURCE,
+  ADD_FAVORITE_IDEA
+} from '../actions/types';
 
-const INITIAL_STATE = {};
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state = {}, action) {
   switch(action.type) {
     case FETCH_IDEAS:
-      return {...state}
+      return action.payload;
     case ADD_IDEA:
       return {...state}
     case REMOVE_IDEA:

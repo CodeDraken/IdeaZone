@@ -1,36 +1,81 @@
 import firebase, { firebaseRef, auth, firebaseIdeasRef, firebaseUsersRef } from './../data/firebase';
+import _ from 'lodash';
 
-export const FETCH_IDEAS = 'FETCH_IDEAS';
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT'
-export const ADD_IDEA = 'ADD_IDEA';
-export const REMOVE_IDEA = 'REMOVE_IDEA';
-export const EDIT_IDEA = 'EDIT_IDEA';
-export const ADD_RESOURCE = 'ADD_RESOURCE';
-export const REMOVE_RESOURCE = 'REMOVE_RESOURCE';
-export const EDIT_RESOURCE = 'EDIT_RESOURCE';
-export const ADD_FAVORITE_IDEA = 'ADD_FAVORITE_IDEA';
-
+import {
+  FETCH_IDEAS,
+  LOGIN,
+  LOGOUT,
+  ADD_IDEA,
+  REMOVE_IDEA,
+  EDIT_IDEA,
+  ADD_RESOURCE,
+  REMOVE_RESOURCE,
+  EDIT_RESOURCE,
+  ADD_FAVORITE_IDEA,
+  USER_FAV_CHANGE,
+  LOAD_USER_FAVORITES
+} from './types';
 
 // action creators
 export const fetchIdeas = () => {
-  return {
-    type: FETCH_IDEAS
-  };
+  return dispatch => {
+    firebaseIdeasRef.on('value', snapshot => {
+      // ideas is an object, keys are ids
+      const ideas = snapshot.val();
+      let parsedIdeas = {...ideas
+      };
+
+      // convert some of the objects to arrays
+      _.forIn(parsedIdeas, (value, key) => {
+        parsedIdeas[key].examples = _.toArray(parsedIdeas[key].examples);
+        parsedIdeas[key].tutorials = _.toArray(parsedIdeas[key].tutorials);
+        parsedIdeas[key].tags = _.toArray(parsedIdeas[key].tags);
+      });
+
+      dispatch({
+        type: FETCH_IDEAS,
+        payload: parsedIdeas
+      });
+    });
+  }
 };
 
-export const login = () => {
-  
+export const loadUserFavorites = (userData) => {
+  return {
+    type: LOAD_USER_FAVORITES,
+    payload: userData
+  }
+}
+
+export const watchCurrentUser = (userID) => {
+  return dispatch => {
+    firebaseUsersRef.child(`${userID}/favorites`).on('value', snapshot => {
+      // this.setState({
+      //   userFavorites: snapshot.val().favorites
+      // });
+      dispatch({
+        type: USER_FAV_CHANGE,
+        payload: snapshot.val()
+      });
+    });
+  }
+}
+
+export const login = (userData) => {
+  return {
+    type: LOGIN,
+    payload: userData
+  };
 };
 
 export const logout = () => {
-  
+  return {
+    type: LOGOUT
+  };
 };
 
-export const addIdea = () => {
-  return {
-    type: ADD_IDEA
-  };
+export const addIdea = (newIdea) => {
+  return dispatch => firebaseIdeasRef.push(newIdea);
 };
 
 export const removeIdea = () => {
@@ -68,3 +113,5 @@ export const addFavoriteIdea = () => {
     type: ADD_FAVORITE_IDEA
   };
 };
+
+
