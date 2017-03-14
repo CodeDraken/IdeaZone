@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import moment from 'moment';
+import { Router, hashHistory } from 'react-router';
 
 import firebase, { firebaseRef, auth, firebaseIdeasRef, firebaseUsersRef } from './../data/firebase';
 import * as actions from '../actions';
@@ -41,9 +42,11 @@ class App extends Component {
           tutorials: null,
           examples: null
         }
-
-        // let newIdeaRef = firebaseIdeasRef.push(newIdea);
-        this.props.addIdea(newIdea)
+        
+        const newIdeaRef = this.props.addIdea(newIdea);
+        // TODO update idea page to container
+        // redirect to the idea page
+        hashHistory.push(`idea?id=${newIdeaRef}`);
       }
       else {
         alert('Please sign in to add ideas!');
@@ -52,16 +55,8 @@ class App extends Component {
 
 
   editIdea = (ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags) => {
-      if (auth.currentUser && this.props.ideas[ideaID].owner === auth.currentUser.uid) {
-        // new idea to push up
-        let updatedIdea = {
-          title: ideaTitle,
-          description: ideaDesc,
-          tags: ideaTags.split(', '),
-          imageUrl: ideaImgUrl
-        }
-
-        let updatedIdeaRef = firebaseIdeasRef.child(ideaID).update(updatedIdea);
+      if (this.props.user.userID && this.props.ideas[ideaID].owner === this.props.user.userID) {
+        this.props.editIdea(ideaID, ideaTitle, ideaDesc, ideaImgUrl, ideaTags.split(', '));
       }
       else {
         alert('Only the owner can edit this idea!');
@@ -110,36 +105,25 @@ class App extends Component {
   addFavoriteIdea = (ideaID) => {
       // pass current user id to post for rendering heart
       // receive post id when clicking heart
-      if (auth.currentUser) {
+      if (this.props.user.userID) {
+        const userID = this.props.user.userID,
+              rating = this.props.ideas[ideaID].rating;
+        
         // test if idea id is already a favorite -1 if not a favorite else index
-        let favoriteID = _.findKey(this.props.user.favorites, (val) => {
+        let favoriteRef = _.findKey(this.props.user.favorites, (val) => {
           return val === ideaID;
         });
 
         // not a favorite so add it
-        if (!favoriteID) {
-          let newFavoriteRef = firebaseUsersRef.child(this.props.user.userID).child('favorites').push(ideaID).then(() => {
-            let ideaRef = firebaseIdeasRef.child(ideaID);
-            let rating = this.props.ideas[ideaID].rating;
-
-            ideaRef.update({
-              rating: ++rating
-            });
-          });
+        if (!favoriteRef) {
+          this.props.addFavoriteIdea(userID, ideaID, rating);
         }
         else {
           // unfavorite idea
-          firebaseUsersRef.child(this.props.user.userID).child('favorites').child(favoriteID).remove(() => {
-            let ideaRef = firebaseIdeasRef.child(ideaID);
-            let rating = this.props.ideas[ideaID].rating;
-
-            ideaRef.update({
-              rating: --rating
-            });
-          });
+          this.props.removeFavoriteIdea(userID, ideaID, favoriteRef, rating);
         }
       }
-    } // /addFavoriteIdea
+  } // /addFavoriteIdea
 
 
 
@@ -171,7 +155,9 @@ class App extends Component {
     // object of props to pass
     let dataToPass = {};
 
-    let postID = this.props.location.query.id;
+    const postID = this.props.location.query.id;
+    const userID = this.props.user.userID;
+    
     let isFavorite = _.findKey(this.props.user.favorites, (val) => val === postID) ? true : false;
     // props to pass in depending on component type
     switch (componentToRender) {
@@ -184,7 +170,7 @@ class App extends Component {
         break;
       case 'IdeaPage':
         let postData = _.at(this.props.ideas, postID)[0] || defaultIdeaData;
-        let isOwner = auth.currentUser && postData.owner === auth.currentUser.uid;
+        let isOwner = userID && postData.owner === userID;
 
         dataToPass = {
           postData: postData,
@@ -212,8 +198,6 @@ class App extends Component {
           </div>
         }
         
-        
-        
         <Navbar username={this.props.user.username} avatar={this.props.user.userAvatar} />
         
           {this.props.children && React.cloneElement(this.props.children, dataToPass)}
@@ -224,12 +208,14 @@ class App extends Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return { 
     ideas: state.ideas,
     user: state.user
   };
 }
+
 
 export default connect(mapStateToProps, actions)(App);
 

@@ -12,6 +12,7 @@ import {
   REMOVE_RESOURCE,
   EDIT_RESOURCE,
   ADD_FAVORITE_IDEA,
+  REMOVE_FAVORITE_IDEA,
   USER_FAV_CHANGE,
   LOAD_USER_FAVORITES
 } from './types';
@@ -75,7 +76,10 @@ export const logout = () => {
 };
 
 export const addIdea = (newIdea) => {
-  return dispatch => firebaseIdeasRef.push(newIdea);
+  return dispatch => {
+    const newIdeaRef = firebaseIdeasRef.push(newIdea)
+    return newIdeaRef.toString().match(/(?:\/)(-.*$)/g)[0];
+  }
 };
 
 export const removeIdea = () => {
@@ -84,10 +88,23 @@ export const removeIdea = () => {
   };
 };
 
-export const editIdea = () => {
-  return {
-    type: EDIT_IDEA
-  };
+
+export const editIdea = (ideaID, title, description,imageUrl, tags) => {
+  return dispatch => {
+    // new idea to push up
+    let updatedIdea = {
+      title,
+      description,
+      tags,
+      imageUrl
+    }
+
+    firebaseIdeasRef.child(ideaID).update(updatedIdea);
+    
+    dispatch({
+      type: EDIT_IDEA
+    });
+  }
 };
 
 export const addResource = () => {
@@ -108,10 +125,35 @@ export const editResource = () => {
   };
 };
 
-export const addFavoriteIdea = () => {
-  return {
-    type: ADD_FAVORITE_IDEA
+export const addFavoriteIdea = (userID, favID, rating) => {
+  return dispatch => {
+    firebaseUsersRef.child(userID).child('favorites').push(favID).then(() => {
+      let ideaRef = firebaseIdeasRef.child(favID);
+        
+      ideaRef.update({
+        rating: ++rating
+      });
+        
+      dispatch({
+        type: ADD_FAVORITE_IDEA
+      });  
+    });
   };
 };
 
+export const removeFavoriteIdea = (userID, ideaID, favRef, rating) => {
+  return dispatch => {
+    firebaseUsersRef.child(userID).child('favorites').child(favRef).remove().then(() => {
+      let ideaRef = firebaseIdeasRef.child(ideaID);
+
+      ideaRef.update({
+        rating: --rating
+      });
+      
+      dispatch({
+        type: REMOVE_FAVORITE_IDEA
+      }); 
+    });
+  };
+};
 

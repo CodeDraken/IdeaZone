@@ -12,19 +12,6 @@ const IdeaPage = (props) =>  {
   let {createdAt, description, examples, imageUrl, ownerName, rating, tags, title, tutorials} = props.postData;
   const {defaultIdeaData} = props;
   
-  // const defaultIdeaData = {
-  //     createdAt: 12345,
-  //     description: "loading data...",
-  //     examples: [],
-  //     imageUrl: "",
-  //     owner: "324543abcdev",
-  //     ownerName: "Anonymous",
-  //     rating: 0,
-  //     tags: [],
-  //     title: "Loading data...",
-  //     tutorials: []
-  //   };
-  
   // pass valid or default data
   createdAt = createdAt ? moment.unix(createdAt).format('MMM Do YYYY') : defaultIdeaData.createdAt;
   description = description ? description : defaultIdeaData.description;
@@ -48,6 +35,7 @@ const IdeaPage = (props) =>  {
     </div>
   );
   
-}
+};
+
 
 export default IdeaPage;
