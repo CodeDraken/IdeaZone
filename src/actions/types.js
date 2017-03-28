@@ -1,4 +1,5 @@
 export const FETCH_IDEAS = 'FETCH_IDEAS';
+export const FETCH_IDEA = 'FETCH_IDEA';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT'
 export const ADD_IDEA = 'ADD_IDEA';

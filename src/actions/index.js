@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 import {
   FETCH_IDEAS,
+  FETCH_IDEA,
   LOGIN,
   LOGOUT,
   ADD_IDEA,
@@ -39,6 +40,18 @@ export const fetchIdeas = () => {
       });
     });
   }
+};
+
+export const fetchIdea = (id) => {
+  return dispatch => {
+    firebaseIdeasRef.child(id).once('value', snapshot => {
+      const idea = snapshot.val();
+      dispatch({
+        type: FETCH_IDEA,
+        payload: idea
+      })
+    });
+  };
 };
 
 export const loadUserFavorites = (userData) => {

@@ -46,7 +46,7 @@ class App extends Component {
         const newIdeaRef = this.props.addIdea(newIdea);
         // TODO update idea page to container
         // redirect to the idea page
-        hashHistory.push(`idea?id=${newIdeaRef}`);
+        hashHistory.push(`idea?id=${newIdeaRef.replace('/', '')}`);
       }
       else {
         alert('Please sign in to add ideas!');
@@ -99,7 +99,7 @@ class App extends Component {
 
   removeResource = () => {
       console.log('removing: ');
-    } // /removeResource
+  } // /removeResource
 
 
   addFavoriteIdea = (ideaID) => {
@@ -173,7 +173,6 @@ class App extends Component {
         let isOwner = userID && postData.owner === userID;
 
         dataToPass = {
-          postData: postData,
           handleAddFavorite: this.addFavoriteIdea,
           defaultIdeaData,
           postID,

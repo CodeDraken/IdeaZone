@@ -19,18 +19,20 @@ const PostContainer = (props) => {
   const genPosts = [];
   // ID is same as firebase key
   _.forIn(props.posts, (value, key) => {
-    let isFavorite;
-    let color = colorClasses[index];
-    // if user has favorites / not undefined
-    if (props.userFavorites) {
-      isFavorite = _.toArray(props.userFavorites).findIndex((val) => val === key) >= 0 ? true : false;
+    if(key !== 'currentIdea') {
+      let isFavorite;
+      let color = colorClasses[index];
+      // if user has favorites / not undefined
+      if (props.userFavorites) {
+        isFavorite = _.toArray(props.userFavorites).findIndex((val) => val === key) >= 0 ? true : false;
+      }
+  
+      index >= colorClasses.length ? index = 0 : index++;
+  
+      genPosts.push(
+        <Post isFavorite={isFavorite} color={color} key={key} postName={value.title} postDesc={value.description} hearts={value.rating} id={key} handleAddFavorite={props.handleAddFavorite}  />
+      );
     }
-
-    index >= colorClasses.length ? index = 0 : index++;
-
-    genPosts.push(
-      <Post isFavorite={isFavorite} color={color} key={key} postName={value.title} postDesc={value.description} hearts={value.rating} id={key} handleAddFavorite={props.handleAddFavorite}  />
-    );
   });
 
   return (

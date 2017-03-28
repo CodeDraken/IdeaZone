@@ -1,5 +1,6 @@
 import {
   FETCH_IDEAS,
+  FETCH_IDEA,
   ADD_IDEA,
   REMOVE_IDEA,
   EDIT_IDEA,
@@ -13,7 +14,15 @@ import {
 export default function(state = {}, action) {
   switch(action.type) {
     case FETCH_IDEAS:
-      return action.payload;
+      return {
+        ...state,
+        ...action.payload
+      };
+    case FETCH_IDEA:
+      return {
+        ...state,
+        currentIdea: action.payload
+      };
     case ADD_IDEA:
       return {...state}
     case REMOVE_IDEA:
